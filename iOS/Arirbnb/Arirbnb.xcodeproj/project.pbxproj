@@ -36,6 +36,7 @@
 		FFAB2ACD26620C4A008AEB31 /* ReuseIdentifierable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB2ACC26620C4A008AEB31 /* ReuseIdentifierable.swift */; };
 		FFAB2ACF26620DAB008AEB31 /* ViewControllerIdentifierable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB2ACE26620DAB008AEB31 /* ViewControllerIdentifierable.swift */; };
 		FFAB2AD126620E5F008AEB31 /* UINibCreateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB2AD026620E5F008AEB31 /* UINibCreateable.swift */; };
+		FFCA98B12665CB790057ADDD /* HorizonCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = FFCA98B02665CB790057ADDD /* HorizonCalendar */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFCA98B12665CB790057ADDD /* HorizonCalendar in Frameworks */,
 				FF665D2E2657841000130ABB /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +354,7 @@
 			name = Arirbnb;
 			packageProductDependencies = (
 				FF665D2D2657841000130ABB /* Kingfisher */,
+				FFCA98B02665CB790057ADDD /* HorizonCalendar */,
 			);
 			productName = Arirbnb;
 			productReference = FF57675F2652490C00F46A43 /* Arirbnb.app */;
@@ -426,6 +429,7 @@
 			mainGroup = FF5767562652490C00F46A43;
 			packageReferences = (
 				FF665D2C2657841000130ABB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FFCA98AF2665CB790057ADDD /* XCRemoteSwiftPackageReference "HorizonCalendar" */,
 			);
 			productRefGroup = FF5767602652490C00F46A43 /* Products */;
 			projectDirPath = "";
@@ -835,6 +839,14 @@
 				minimumVersion = 6.3.0;
 			};
 		};
+		FFCA98AF2665CB790057ADDD /* XCRemoteSwiftPackageReference "HorizonCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/HorizonCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -842,6 +854,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF665D2C2657841000130ABB /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FFCA98B02665CB790057ADDD /* HorizonCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFCA98AF2665CB790057ADDD /* XCRemoteSwiftPackageReference "HorizonCalendar" */;
+			productName = HorizonCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
