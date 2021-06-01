@@ -161,6 +161,21 @@
             </objects>
             <point key="canvasLocation" x="1143" y="-415"/>
         </scene>
+        <!--Search Filtering View Controller-->
+        <scene sceneID="VES-B4-reQ">
+            <objects>
+                <viewController storyboardIdentifier="SearchFilteringViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xwb-jx-JIp" customClass="SearchFilteringViewController" customModule="Arirbnb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OeZ-wU-qqC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Waf-jy-VUZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2z-A0-HkN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2094" y="-415"/>
+        </scene>
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>

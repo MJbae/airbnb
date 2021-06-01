@@ -7,11 +7,16 @@
 
 import UIKit
 
+struct DetailSearchViewControllerAction {
+    let showSearchFilteringView: (Destination) -> Void
+}
+
 class DetailSearchViewController: UIViewController, ViewControllerIdentifierable{
-    static func create(_ destinations: [[Destination]] = []) -> DetailSearchViewController {
+    static func create(_ action: DetailSearchViewControllerAction,_ destinations: [[Destination]] = []) -> DetailSearchViewController {
         guard let vc = storyboard.instantiateViewController(identifier: storyboardID) as? DetailSearchViewController else {
             return DetailSearchViewController()
         }
+        vc.action = action
         vc.destinations = destinations
         return vc
     }
@@ -29,6 +34,7 @@ class DetailSearchViewController: UIViewController, ViewControllerIdentifierable
     @IBOutlet private weak var destinationsCollectionView: UICollectionView!
     private lazy var searchController = UISearchController()
 
+    private var action: DetailSearchViewControllerAction?
     private var destinations: [[Destination]] = []
     private var filteredDestinations: [Destination] = []
     
@@ -126,5 +132,10 @@ extension DetailSearchViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 125)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedDestination = filteredDestinations[indexPath.item]
+        action?.showSearchFilteringView(selectedDestination)
     }
 }

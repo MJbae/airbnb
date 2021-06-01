@@ -23,8 +23,15 @@ public class AirbnbSceneFlowCoordinator {
     }
     
     func showDetailSearchView() {
-        let detailSerchVC = DetailSearchViewController.create([MockAdjacentDestination.mockDatas, MockSearchedDestinaion.mockDatas])
+        let detailSearchVCAction = DetailSearchViewControllerAction(showSearchFilteringView: showSearchFilteringView(destination:))
+        let detailSerchVC = DetailSearchViewController.create(detailSearchVCAction, [MockAdjacentDestination.mockDatas, MockSearchedDestinaion.mockDatas])
         searachSceneNavigationController?.pushViewController(detailSerchVC, animated: true)
         searachSceneNavigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func showSearchFilteringView(destination: Destination) {
+        let searchFilteringVC = SearchFilteringViewController.create(destination: destination)
+        searchFilteringVC.hidesBottomBarWhenPushed = true
+        searachSceneNavigationController?.pushViewController(searchFilteringVC, animated: true)
     }
 }
