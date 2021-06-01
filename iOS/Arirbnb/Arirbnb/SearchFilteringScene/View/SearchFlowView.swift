@@ -24,7 +24,7 @@ class SearchFlowView: UIView {
         configure()
     }
     
-    private func configure() {
+    @objc override  func configure() {
         skipButton.setTitle("건너뛰기", for: .normal)
         skipButton.setTitleColor(.black, for: .normal)
         
@@ -39,6 +39,8 @@ class SearchFlowView: UIView {
         addSubview(nextButton)
         
         configureDefaultLayout()
+        
+        nextButton.addTarget(self, action: #selector(nextButtonDidTap(_:)), for: .touchUpInside)
     }
     
     private func configureDefaultLayout() {
@@ -91,5 +93,9 @@ class SearchFlowView: UIView {
         
         eraseButton.removeFromSuperview()
         addSkipButton()
+    }
+    
+    @objc func nextButtonDidTap(_ sendor: UIButton) {
+        NotificationCenter.default.post(name: .moveSearchFlowNextStep, object: self)
     }
 }

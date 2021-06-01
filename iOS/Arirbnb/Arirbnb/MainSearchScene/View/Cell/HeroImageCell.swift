@@ -20,7 +20,7 @@ class HeroImageCell: UICollectionViewCell, ReuseIdentifierable {
         configure()
     }
     
-    func configure() {
+    @objc override func configure() {
         contentView.addSubview(heroImageView)
         
         heroImageView.translatesAutoresizingMaskIntoConstraints = false

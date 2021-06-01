@@ -31,18 +31,21 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
     }
     
     private lazy var filteringStackView = UIStackView()
+    private var filteringViews: [UIView] = []
     private lazy var calendar = DumbaCalendar()
+    private lazy var sliderView = SliderView()
     private lazy var filteringTableView = UITableView()
     private lazy var flowView = SearchFlowView()
     
+    private var nowFilteringStep: Int = 0
     private var destination: Destination?
     private var filterItems: FilterItems?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        filteringViews = [calendar, sliderView]
         configureStackView()
         addSubViews()
-        configureCalendar()
         configureTableView()
         configureFilterItems()
         addObservers()
@@ -56,9 +59,7 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         filteringStackView.distribution = .fill
         configureStackViewLayout()
     }
-    private func configureCalendar() {
-        calendar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.725).isActive = true
-    }
+
     
     private func configureTableView() {
         filteringTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,10 +82,12 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(setDateChange(_:)), name: .selectDateDidChange, object: calendar)
         NotificationCenter.default.addObserver(self, selector: #selector(setDateIsChanging(_:)), name: .selectDateisChanging, object: calendar)
+        NotificationCenter.default.addObserver(self, selector: #selector(nextButtonDidTap(_:)), name: .moveSearchFlowNextStep, object: flowView)
     }
     
     private func addSubViews() {
-        filteringStackView.addArrangedSubview(calendar)
+        filteringStackView.addArrangedSubview(filteringViews[nowFilteringStep])
+        filteringViews[nowFilteringStep].configureFilteringViewLayout()
         filteringStackView.addArrangedSubview(filteringTableView)
         filteringStackView.addArrangedSubview(flowView)
     }
@@ -117,6 +120,14 @@ extension SearchFilteringViewController {
         filteringTableView.reloadData()
         
         flowView.doNotMeetTheConditions()
+    }
+    
+    @objc func nextButtonDidTap(_ notification: Notification) {
+        filteringViews[nowFilteringStep].removeFromSuperview()
+        nowFilteringStep += 1
+        filteringStackView.insertArrangedSubview(filteringViews[nowFilteringStep], at: 0)
+        filteringViews[nowFilteringStep].configureFilteringViewLayout()
+        filteringViews[nowFilteringStep].configure()
     }
 }
 

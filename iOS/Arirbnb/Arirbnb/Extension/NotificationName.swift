@@ -10,4 +10,5 @@ import Foundation
 extension Notification.Name {
     static let selectDateDidChange = Notification.Name("selectDateDidChange")
     static let selectDateisChanging = Notification.Name("selectDateisChanging")
+    static let moveSearchFlowNextStep = Notification.Name("moveSearchFlowNextStep")
 }
