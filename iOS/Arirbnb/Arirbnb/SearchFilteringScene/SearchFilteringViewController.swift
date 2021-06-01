@@ -30,37 +30,44 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         }
     }
     
-    private var destination: Destination?
+    private lazy var filteringStackView = UIStackView()
     private lazy var calendar = DumbaCalendar()
     private lazy var filteringTableView = UITableView()
     private lazy var flowView = SearchFlowView()
     
+    private var destination: Destination?
     private var filterItems: FilterItems?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureStackView()
+        addSubViews()
         configureCalendar()
         configureTableView()
         configureFilterItems()
-        configureSearchFlowView()
         addObservers()
     }
     
+    private func configureStackView() {
+        view.addSubview(filteringStackView)
+        filteringStackView.translatesAutoresizingMaskIntoConstraints = false
+        filteringStackView.axis = .vertical
+        filteringStackView.alignment = .fill
+        filteringStackView.distribution = .fill
+        configureStackViewLayout()
+    }
     private func configureCalendar() {
-        view.addSubview(calendar)
-        calendar.translatesAutoresizingMaskIntoConstraints = false
-        configureCalendarLayout()
+        calendar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.725).isActive = true
     }
     
     private func configureTableView() {
-        view.addSubview(filteringTableView)
         filteringTableView.translatesAutoresizingMaskIntoConstraints = false
         filteringTableView.isScrollEnabled = false
         filteringTableView.isUserInteractionEnabled = false
         filteringTableView.dataSource = self
         filteringTableView.delegate = self
         filteringTableView.register(FilteringCell.nib, forCellReuseIdentifier: FilteringCell.reuseIdentifier)
-        configureTableViewLayout()
+        filteringTableView.heightAnchor.constraint(equalToConstant: 170).isActive = true
     }
     
     private func configureFilterItems() {
@@ -71,46 +78,23 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         filterItems?.items[FilteringSection.location.rawValue].filteringValue = destination?.destinationName
     }
     
-    private func configureSearchFlowView() {
-        view.addSubview(flowView)
-        flowView.translatesAutoresizingMaskIntoConstraints = false
-        configureFlowViewLayout()
-    }
-    
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(setDateChange(_:)), name: .selectDateDidChange, object: calendar)
         NotificationCenter.default.addObserver(self, selector: #selector(setDateIsChanging(_:)), name: .selectDateisChanging, object: calendar)
     }
     
-    private func configureCalendarLayout() {
-        let inset = view.frame.height * 0.25
-        
-        NSLayoutConstraint.activate([
-            calendar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            calendar.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            calendar.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            calendar.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -1 * inset)
-        ])
+    private func addSubViews() {
+        filteringStackView.addArrangedSubview(calendar)
+        filteringStackView.addArrangedSubview(filteringTableView)
+        filteringStackView.addArrangedSubview(flowView)
     }
     
-    private func configureTableViewLayout() {
-        let inset = view.frame.height * 0.06
-
+    private func configureStackViewLayout() {
         NSLayoutConstraint.activate([
-            filteringTableView.topAnchor.constraint(equalTo: calendar.bottomAnchor),
-            filteringTableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            filteringTableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            filteringTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -1 * inset)
-
-        ])
-    }
-    
-    private func configureFlowViewLayout() {
-        NSLayoutConstraint.activate([
-            flowView.topAnchor.constraint(equalTo: filteringTableView.bottomAnchor),
-            flowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            flowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            flowView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            filteringStackView.topAnchor.constraint(equalTo: view.topAnchor),
+            filteringStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            filteringStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            filteringStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
