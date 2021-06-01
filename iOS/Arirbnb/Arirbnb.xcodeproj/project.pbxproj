@@ -53,6 +53,10 @@
 		FFCA98D22665DE2B0057ADDD /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98D12665DE2B0057ADDD /* SliderView.swift */; };
 		FFCA98D42665E2570057ADDD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98D32665E2570057ADDD /* UIView+Extension.swift */; };
 		FFCA98D72665FE2F0057ADDD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFCA98D62665FE2F0057ADDD /* SnapKit */; };
+		FFCA98DA266609EE0057ADDD /* PersonFilteringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98D8266609EE0057ADDD /* PersonFilteringCell.swift */; };
+		FFCA98DB266609EE0057ADDD /* PersonFilteringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCA98D9266609EE0057ADDD /* PersonFilteringCell.xib */; };
+		FFCA98DD26660B970057ADDD /* PersonFilteringDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */; };
+		FFCA98DF26660D0A0057ADDD /* PersonFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +126,10 @@
 		FFCA98CF2665DE0D0057ADDD /* DumbaSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumbaSlider.swift; sourceTree = "<group>"; };
 		FFCA98D12665DE2B0057ADDD /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		FFCA98D32665E2570057ADDD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FFCA98D8266609EE0057ADDD /* PersonFilteringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilteringCell.swift; sourceTree = "<group>"; };
+		FFCA98D9266609EE0057ADDD /* PersonFilteringCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonFilteringCell.xib; sourceTree = "<group>"; };
+		FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilteringDataSource.swift; sourceTree = "<group>"; };
+		FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +364,7 @@
 			children = (
 				FF665D3B265B78B200130ABB /* Destination.swift */,
 				FFCA98CC2665CD460057ADDD /* FilterItems.swift */,
+				FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 			children = (
 				FFCA98B32665CCB90057ADDD /* SearchFilteringViewController.swift */,
 				FFCA98B52665CCCE0057ADDD /* View */,
+				FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */,
 			);
 			path = SearchFilteringScene;
 			sourceTree = "<group>";
@@ -387,6 +397,8 @@
 				FFCA98C82665CD360057ADDD /* FilteringCell.xib */,
 				FFCA98C72665CD360057ADDD /* SearchFlowView.swift */,
 				FFCA98B62665CCD60057ADDD /* Calendar */,
+				FFCA98D8266609EE0057ADDD /* PersonFilteringCell.swift */,
+				FFCA98D9266609EE0057ADDD /* PersonFilteringCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -539,6 +551,7 @@
 				FF5767A4265298A000F46A43 /* AdjacentDestinationsCell.xib in Resources */,
 				FF57676F2652490E00F46A43 /* LaunchScreen.storyboard in Resources */,
 				FF57676C2652490E00F46A43 /* Assets.xcassets in Resources */,
+				FFCA98DB266609EE0057ADDD /* PersonFilteringCell.xib in Resources */,
 				FF5767B52653311E00F46A43 /* ThemeDestinationsCell.xib in Resources */,
 				FF665D1E26574E4200130ABB /* SearchResultCell.xib in Resources */,
 				FF57676A2652490C00F46A43 /* Main.storyboard in Resources */,
@@ -582,9 +595,11 @@
 				FFAB2ACD26620C4A008AEB31 /* ReuseIdentifierable.swift in Sources */,
 				FF5767CF2653A2AE00F46A43 /* WishListViewController.swift in Sources */,
 				FF665D1D26574E4200130ABB /* SearchResultCell.swift in Sources */,
+				FFCA98DF26660D0A0057ADDD /* PersonFilter.swift in Sources */,
 				FFCA98D22665DE2B0057ADDD /* SliderView.swift in Sources */,
 				FF665D302657845700130ABB /* UIImageView+Extension.swift in Sources */,
 				FF5767B42653311E00F46A43 /* ThemeDestinationsCell.swift in Sources */,
+				FFCA98DA266609EE0057ADDD /* PersonFilteringCell.swift in Sources */,
 				FFCA98C52665CD1F0057ADDD /* UserInfoKey.swift in Sources */,
 				FF665D3C265B78B200130ABB /* Destination.swift in Sources */,
 				FF5767A22652935F00F46A43 /* AdjacentDestinationsCell.swift in Sources */,
@@ -598,6 +613,7 @@
 				FFCA98B42665CCB90057ADDD /* SearchFilteringViewController.swift in Sources */,
 				FF5767D52653A99400F46A43 /* MyReserVationViewModel.swift in Sources */,
 				FF5767652652490C00F46A43 /* SceneDelegate.swift in Sources */,
+				FFCA98DD26660B970057ADDD /* PersonFilteringDataSource.swift in Sources */,
 				FFCA98C92665CD360057ADDD /* FilteringCell.swift in Sources */,
 				FF5767BC26535AC200F46A43 /* HeroImageCell.swift in Sources */,
 				FF5767BF2653655400F46A43 /* HeaderView.swift in Sources */,

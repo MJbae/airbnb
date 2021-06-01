@@ -34,18 +34,20 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
     private var filteringViews: [UIView] = []
     private lazy var calendar = DumbaCalendar()
     private lazy var sliderView = SliderView()
+    private lazy var personFilteringTableView = UITableView()
     private lazy var filteringTableView = UITableView()
     private lazy var flowView = SearchFlowView()
     
     private var nowFilteringStep: Int = 0
     private var destination: Destination?
     private var filterItems: FilterItems?
-    
+    private var personFilteringDataSource = PersonFilteringDataSource()
     override func viewDidLoad() {
         super.viewDidLoad()
-        filteringViews = [calendar, sliderView]
+        filteringViews = [calendar, sliderView, personFilteringTableView]
         configureStackView()
         addSubViews()
+        configurePersonFilteringTableView()
         configureTableView()
         configureFilterItems()
         addObservers()
@@ -60,6 +62,18 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         configureStackViewLayout()
     }
 
+    private func configurePersonFilteringTableView() {
+        let footerView = UIView()
+        footerView.backgroundColor = .clear
+        personFilteringTableView.tableFooterView = footerView
+        personFilteringTableView.translatesAutoresizingMaskIntoConstraints = false
+        personFilteringTableView.register(PersonFilteringCell.nib, forCellReuseIdentifier: PersonFilteringCell.reuseIdentifier)
+        personFilteringTableView.dataSource = personFilteringDataSource
+        personFilteringTableView.delegate = self
+        personFilteringTableView.rowHeight = 100
+        personFilteringTableView.isScrollEnabled = false
+        personFilteringTableView.isUserInteractionEnabled = false
+    }
     
     private func configureTableView() {
         filteringTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -94,7 +108,7 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
     
     private func configureStackViewLayout() {
         NSLayoutConstraint.activate([
-            filteringStackView.topAnchor.constraint(equalTo: view.topAnchor),
+            filteringStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             filteringStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             filteringStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             filteringStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -128,6 +142,7 @@ extension SearchFilteringViewController {
         filteringStackView.insertArrangedSubview(filteringViews[nowFilteringStep], at: 0)
         filteringViews[nowFilteringStep].configureFilteringViewLayout()
         filteringViews[nowFilteringStep].configure()
+        flowView.doNotMeetTheConditions()
     }
 }
 

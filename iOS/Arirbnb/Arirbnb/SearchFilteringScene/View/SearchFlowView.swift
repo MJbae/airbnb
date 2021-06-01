@@ -41,6 +41,7 @@ class SearchFlowView: UIView {
         configureDefaultLayout()
         
         nextButton.addTarget(self, action: #selector(nextButtonDidTap(_:)), for: .touchUpInside)
+        skipButton.addTarget(self, action: #selector(nextButtonDidTap(_:)), for: .touchUpInside)
     }
     
     private func configureDefaultLayout() {

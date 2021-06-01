@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class SliderView: UIView {
     
@@ -23,20 +24,27 @@ class SliderView: UIView {
     }
     
     @objc override func configure() {
+        guard let superview = superview else { return }
         slider.translatesAutoresizingMaskIntoConstraints = false
-        priceHeaderLabel.text = "가격 범위"
-        priceHeaderLabel.adjustsFontForContentSizeCategory = true
-        priceHeaderLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        
+
         addSubview(slider)
         addSubview(priceHeaderLabel)
         
+        priceHeaderLabel.text = "가격 범위"
+        priceHeaderLabel.adjustsFontForContentSizeCategory = true
+        priceHeaderLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        priceHeaderLabel.textColor = .black
+        priceHeaderLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+
+        priceHeaderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 32).isActive = true
+        priceHeaderLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         
         let margin: CGFloat = 20
-        let width = (superview?.bounds.width ?? 0) - 2 * margin
-        let height: CGFloat = 30
+        let width = superview.bounds.width - 2 * margin
+        let height: CGFloat = 20
         
         slider.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        slider.center = superview?.center ?? CGPoint.zero
+        slider.center = CGPoint(x: superview.center.x, y: superview.center.y - 100)
     }
 }
