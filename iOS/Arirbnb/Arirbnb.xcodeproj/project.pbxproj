@@ -57,6 +57,7 @@
 		FFCA98DB266609EE0057ADDD /* PersonFilteringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCA98D9266609EE0057ADDD /* PersonFilteringCell.xib */; };
 		FFCA98DD26660B970057ADDD /* PersonFilteringDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */; };
 		FFCA98DF26660D0A0057ADDD /* PersonFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */; };
+		FFCA98E3266614950057ADDD /* FilteringTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98E2266614950057ADDD /* FilteringTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		FFCA98D9266609EE0057ADDD /* PersonFilteringCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonFilteringCell.xib; sourceTree = "<group>"; };
 		FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilteringDataSource.swift; sourceTree = "<group>"; };
 		FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilter.swift; sourceTree = "<group>"; };
+		FFCA98E2266614950057ADDD /* FilteringTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 				FFCA98B32665CCB90057ADDD /* SearchFilteringViewController.swift */,
 				FFCA98B52665CCCE0057ADDD /* View */,
 				FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */,
+				FFCA98E2266614950057ADDD /* FilteringTableViewDataSource.swift */,
 			);
 			path = SearchFilteringScene;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				FF5767E32653B48700F46A43 /* DetailSearchViewController.swift in Sources */,
 				FFAB2ACF26620DAB008AEB31 /* ViewControllerIdentifierable.swift in Sources */,
 				FFCA98C42665CD1F0057ADDD /* NotificationName.swift in Sources */,
+				FFCA98E3266614950057ADDD /* FilteringTableViewDataSource.swift in Sources */,
 				FF5767D22653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift in Sources */,
 				FFCA98BA2665CCE70057ADDD /* DumbaCalendar.swift in Sources */,
 				FF5767D82653A9EB00F46A43 /* WishListViewModel.swift in Sources */,

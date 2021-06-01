@@ -17,19 +17,6 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         return vc
     }
     
-    enum FilteringSection: Int, CaseIterable {
-        case location, checkInOut, price, numberOfPeople
-        
-        func filteringName() -> String {
-            switch self {
-            case .location: return "위치"
-            case .checkInOut: return "체크인/체크아웃"
-            case .price: return "요금"
-            case .numberOfPeople: return "인원"
-            }
-        }
-    }
-    
     private lazy var filteringStackView = UIStackView()
     private var filteringViews: [UIView] = []
     private lazy var calendar = DumbaCalendar()
@@ -40,8 +27,9 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
     
     private var nowFilteringStep: Int = 0
     private var destination: Destination?
-    private var filterItems: FilterItems?
     private var personFilteringDataSource = PersonFilteringDataSource()
+    private var filteringTableViewDataSource = FilteringTableViewDataSource()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         filteringViews = [calendar, sliderView, personFilteringTableView]
@@ -49,7 +37,6 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         addSubViews()
         configurePersonFilteringTableView()
         configureTableView()
-        configureFilterItems()
         addObservers()
     }
     
@@ -79,18 +66,11 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         filteringTableView.translatesAutoresizingMaskIntoConstraints = false
         filteringTableView.isScrollEnabled = false
         filteringTableView.isUserInteractionEnabled = false
-        filteringTableView.dataSource = self
+        filteringTableView.dataSource = filteringTableViewDataSource
         filteringTableView.delegate = self
         filteringTableView.register(FilteringCell.nib, forCellReuseIdentifier: FilteringCell.reuseIdentifier)
         filteringTableView.heightAnchor.constraint(equalToConstant: 170).isActive = true
-    }
-    
-    private func configureFilterItems() {
-        let items = FilteringSection.allCases.map { filterSection in
-            FilterItem(filteringName: filterSection.filteringName())
-        }
-        filterItems = FilterItems(items: items)
-        filterItems?.items[FilteringSection.location.rawValue].filteringValue = destination?.destinationName
+        filteringTableViewDataSource.setDestination(destination?.destinationName)
     }
     
     private func addObservers() {
@@ -123,14 +103,14 @@ extension SearchFilteringViewController {
         let lowerDay = notification.userInfo?[UserInfoKey.selectedLowerDay] as? Day
         let upperDay = notification.userInfo?[UserInfoKey.selectedUpperDay] as? Day
         let selectedDaysDescription = "\(lowerDay?.descriptionOnlyMonthDayForKorean ?? "") - \(upperDay?.descriptionOnlyMonthDayForKorean ?? "")"
-        filterItems?.items[FilteringSection.checkInOut.rawValue].filteringValue = selectedDaysDescription
+        filteringTableViewDataSource.checkInOutChange(selectedDaysDescription)
         filteringTableView.reloadData()
         
         flowView.meetTheConditions()
     }
     
     @objc func setDateIsChanging(_ notification: Notification) {
-        filterItems?.items[FilteringSection.checkInOut.rawValue].filteringValue = ""
+        filteringTableViewDataSource.checkInOutChange("")
         filteringTableView.reloadData()
         
         flowView.doNotMeetTheConditions()
@@ -143,21 +123,6 @@ extension SearchFilteringViewController {
         filteringViews[nowFilteringStep].configureFilteringViewLayout()
         filteringViews[nowFilteringStep].configure()
         flowView.doNotMeetTheConditions()
-    }
-}
-
-//MARK: - Data Source
-
-extension SearchFilteringViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        FilteringSection.allCases.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FilteringCell.reuseIdentifier) as? FilteringCell
-        cell?.configure(item: filterItems?.items[indexPath.item])
-        
-        return cell ?? UITableViewCell()
     }
 }
 

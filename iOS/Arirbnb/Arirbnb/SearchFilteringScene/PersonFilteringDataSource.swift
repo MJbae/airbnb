@@ -36,7 +36,7 @@ class PersonFilteringDataSource: NSObject, UITableViewDataSource {
         let section = PersonSection.allCases[indexPath.item]
         let item = PersonFilter(personType: section.titleToKorean(), description: section.describeToKorean())
         cell?.configure(item)
-        print(item.description)
+        
         return cell ?? UITableViewCell()
     }
 }
