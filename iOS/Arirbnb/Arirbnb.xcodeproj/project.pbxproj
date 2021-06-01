@@ -52,6 +52,7 @@
 		FFCA98D02665DE0D0057ADDD /* DumbaSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98CF2665DE0D0057ADDD /* DumbaSlider.swift */; };
 		FFCA98D22665DE2B0057ADDD /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98D12665DE2B0057ADDD /* SliderView.swift */; };
 		FFCA98D42665E2570057ADDD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98D32665E2570057ADDD /* UIView+Extension.swift */; };
+		FFCA98D72665FE2F0057ADDD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFCA98D62665FE2F0057ADDD /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFCA98D72665FE2F0057ADDD /* SnapKit in Frameworks */,
 				FFCA98B12665CB790057ADDD /* HorizonCalendar in Frameworks */,
 				FF665D2E2657841000130ABB /* Kingfisher in Frameworks */,
 			);
@@ -440,6 +442,7 @@
 			packageProductDependencies = (
 				FF665D2D2657841000130ABB /* Kingfisher */,
 				FFCA98B02665CB790057ADDD /* HorizonCalendar */,
+				FFCA98D62665FE2F0057ADDD /* SnapKit */,
 			);
 			productName = Arirbnb;
 			productReference = FF57675F2652490C00F46A43 /* Arirbnb.app */;
@@ -515,6 +518,7 @@
 			packageReferences = (
 				FF665D2C2657841000130ABB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FFCA98AF2665CB790057ADDD /* XCRemoteSwiftPackageReference "HorizonCalendar" */,
+				FFCA98D52665FE2F0057ADDD /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FF5767602652490C00F46A43 /* Products */;
 			projectDirPath = "";
@@ -947,6 +951,14 @@
 				minimumVersion = 1.8.3;
 			};
 		};
+		FFCA98D52665FE2F0057ADDD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -959,6 +971,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FFCA98AF2665CB790057ADDD /* XCRemoteSwiftPackageReference "HorizonCalendar" */;
 			productName = HorizonCalendar;
+		};
+		FFCA98D62665FE2F0057ADDD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFCA98D52665FE2F0057ADDD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
