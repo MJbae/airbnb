@@ -7,18 +7,9 @@
 
 import UIKit
 
-class SearchResultCell: UICollectionViewCell {
+class SearchResultCell: UICollectionViewCell, UINibCreateable {
 
-    static let reuseIdentifier = "SearchResultCell"
-    static func nib() -> UINib {
-        return UINib(nibName: reuseIdentifier, bundle: nil)
-    }
-    @IBOutlet weak var searchResultLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet private weak var searchResultLabel: UILabel!
     
     func configure(with model: Destination?) {
         guard let model = model else { return }

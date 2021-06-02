@@ -7,14 +7,17 @@
 
 import UIKit
 
-class DetailSearchViewController: UIViewController{
-    static let storyboardName = "Main"
-    static let storybardID = "DetailSearchViewController"
-    static func create() -> DetailSearchViewController {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        guard let vc = storyboard.instantiateViewController(identifier: storybardID) as? DetailSearchViewController else {
+struct DetailSearchViewControllerAction {
+    let showCalendarFilteringView: (Destination) -> Void
+}
+
+class DetailSearchViewController: UIViewController, ViewControllerIdentifierable{
+    static func create(_ action: DetailSearchViewControllerAction,_ destinations: [[Destination]] = []) -> DetailSearchViewController {
+        guard let vc = storyboard.instantiateViewController(identifier: storyboardID) as? DetailSearchViewController else {
             return DetailSearchViewController()
         }
+        vc.action = action
+        vc.destinations = destinations
         return vc
     }
     
@@ -28,22 +31,31 @@ class DetailSearchViewController: UIViewController{
         }
     }
     
-    @IBOutlet weak var destinationsCollectionView: UICollectionView!
-    private var searchController: UISearchController!
+    @IBOutlet private weak var destinationsCollectionView: UICollectionView!
+    private lazy var searchController = UISearchController()
 
-    private var destinations: [[Destination]] = [MockAdjacentDestination.mockDatas, MockSearchedDestinaion.mockDatas]
-    private var filteredDestinations: [Destination]!
+    private var action: DetailSearchViewControllerAction?
+    private var destinations: [[Destination]] = []
+    private var filteredDestinations: [Destination] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureBackButton()
         configureNavigation()
         configureCollectionView()
     }
     
+    private func configureBackButton() {
+        navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.9367293119, green: 0.3948215544, blue: 0.4507040977, alpha: 1)
+        
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: UIBarButtonItem.Style.done, target: self, action: #selector(back(_:)))
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
     private func configureNavigation() {
         navigationItem.title = "숙소 찾기"
-        searchController = UISearchController()
         searchController.searchResultsUpdater = self
         searchController.becomeFirstResponder()
         
@@ -54,6 +66,7 @@ class DetailSearchViewController: UIViewController{
         definesPresentationContext = true
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        configureNavigationItem()
     }
     private func configureCollectionView() {
         registerSubViews()
@@ -61,8 +74,13 @@ class DetailSearchViewController: UIViewController{
     
     private func registerSubViews() {
         destinationsCollectionView.register(AdjacentDestinationsCell.nib, forCellWithReuseIdentifier: AdjacentDestinationsCell.reuseIdentifier)
-        destinationsCollectionView.register(SearchResultCell.nib(), forCellWithReuseIdentifier: SearchResultCell.reuseIdentifier)
+        destinationsCollectionView.register(SearchResultCell.nib, forCellWithReuseIdentifier: SearchResultCell.reuseIdentifier)
         destinationsCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier)
+    }
+    
+    @objc func back(_ sender: UIBarButtonItem) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -129,5 +147,10 @@ extension DetailSearchViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 125)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedDestination = filteredDestinations[indexPath.item]
+        action?.showCalendarFilteringView(selectedDestination)
     }
 }

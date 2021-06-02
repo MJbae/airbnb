@@ -11,17 +11,15 @@ struct MainSearchViewControllerAction {
     let showDetailSearchView : () -> ()
 }
 
-class MainSearchViewController: UIViewController {
+class MainSearchViewController: UIViewController, ViewControllerIdentifierable {
     static let sectionHeaderElementKind = "MainViewSectionHeaderElement"
-    static let storyboardName = "Main"
-    static let storyboardID = "MainSearchViewController"
-    
-    static func create(_ action: MainSearchViewControllerAction) -> MainSearchViewController {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+ 
+    static func create(_ action: MainSearchViewControllerAction, _ destinations: [[Destination]] = []) -> MainSearchViewController {
         guard let vc = storyboard.instantiateViewController(identifier: storyboardID) as? MainSearchViewController else {
             return MainSearchViewController()
         }
         vc.action = action
+        vc.destinations = destinations
         return vc
     }
     
@@ -36,18 +34,17 @@ class MainSearchViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet private weak var mainCollectionView: UICollectionView!
     
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Destination>! = nil
-    private var action: MainSearchViewControllerAction!
-    private var destinations: [[Destination]] = [[Destination.init(destinationName: "HeroImage")],MockAdjacentDestination.mockDatas, MockThemeDestination.mockDatas]
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Destination> = configureDataSource()
+    private var action: MainSearchViewControllerAction?
+    private var destinations: [[Destination]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = "뒤로"
         navigationController?.setNavigationBarHidden(true, animated: false)
         configureCollectionView()
-        configureDataSource()
         applySnapshot()
     }
 
@@ -69,7 +66,7 @@ class MainSearchViewController: UIViewController {
 
 extension MainSearchViewController {
     @IBAction func didTappedSearchButton(_ sender: Any) {
-        action.showDetailSearchView()
+        action?.showDetailSearchView()
     }
 }
 
@@ -82,8 +79,8 @@ extension MainSearchViewController: UICollectionViewDelegate {
 //MARK: - Diffable DataSource
 
 extension MainSearchViewController {
-    private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, Destination>(collectionView: mainCollectionView) { (collectionView: UICollectionView, indexPath: IndexPath, item: Destination) -> UICollectionViewCell? in
+    private func configureDataSource() -> UICollectionViewDiffableDataSource<Section, Destination> {
+        let dataSource = UICollectionViewDiffableDataSource<Section, Destination>(collectionView: mainCollectionView) { (collectionView: UICollectionView, indexPath: IndexPath, item: Destination) -> UICollectionViewCell? in
             let sectionKind = Section.allCases[indexPath.section]
 
             switch sectionKind {
@@ -107,6 +104,8 @@ extension MainSearchViewController {
             view.configure(headerText: Section.allCases[indexPath.section].sectionHeaderString())
             return view
         }
+        
+        return dataSource
     }
 
     private func applySnapshot() {

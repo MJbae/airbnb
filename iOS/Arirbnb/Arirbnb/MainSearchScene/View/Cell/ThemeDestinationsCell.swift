@@ -7,15 +7,10 @@
 
 import UIKit
 
-class ThemeDestinationsCell: UICollectionViewCell {
+class ThemeDestinationsCell: UICollectionViewCell, UINibCreateable {
 
-    static let reuseIdentifier = "ThemeDestinationsCell"
-    static var nib: UINib {
-        return UINib(nibName: reuseIdentifier, bundle: nil)
-    }
-    
-    @IBOutlet weak var themeDestinationImageView: UIImageView!
-    @IBOutlet weak var themeDestinationLabel: UILabel!
+    @IBOutlet private weak var themeDestinationImageView: UIImageView!
+    @IBOutlet private weak var themeDestinationLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
