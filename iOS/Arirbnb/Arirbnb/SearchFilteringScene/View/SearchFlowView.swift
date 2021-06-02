@@ -8,9 +8,12 @@
 import UIKit
 
 class SearchFlowView: UIView {
-    var skipButton = UIButton()
-    var eraseButton = UIButton()
-    var nextButton = UIButton()
+    private var skipButton = UIButton()
+    private var eraseButton = UIButton()
+    private var nextButton = UIButton()
+    
+    private let defaultColor = #colorLiteral(red: 0.9367293119, green: 0.3948215544, blue: 0.4507040977, alpha: 1)
+    private let unableColor = #colorLiteral(red: 0.7362961781, green: 0.3136540533, blue: 0.3689730703, alpha: 0.7572233693)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,15 +27,15 @@ class SearchFlowView: UIView {
         configure()
     }
     
-    @objc override  func configure() {
+    func configure() {
         skipButton.setTitle("건너뛰기", for: .normal)
-        skipButton.setTitleColor(.black, for: .normal)
+        skipButton.setTitleColor(defaultColor, for: .normal)
         
         eraseButton.setTitle("지우기", for: .normal)
-        eraseButton.setTitleColor(.black, for: .normal)
+        eraseButton.setTitleColor(defaultColor, for: .normal)
         
         nextButton.setTitle("다음", for: .normal)
-        nextButton.setTitleColor(.gray, for: .normal)
+        nextButton.setTitleColor(unableColor, for: .normal)
         nextButton.isEnabled = false
         
         addSubview(skipButton)
@@ -42,6 +45,7 @@ class SearchFlowView: UIView {
         
         nextButton.addTarget(self, action: #selector(nextButtonDidTap(_:)), for: .touchUpInside)
         skipButton.addTarget(self, action: #selector(nextButtonDidTap(_:)), for: .touchUpInside)
+        eraseButton.addTarget(self, action: #selector(eraseButtonDidTap(_:)), for: .touchUpInside)
     }
     
     private func configureDefaultLayout() {
@@ -81,7 +85,7 @@ class SearchFlowView: UIView {
     }
     
     func meetTheConditions() {
-        nextButton.setTitleColor(.black, for: .normal)
+        nextButton.setTitleColor(defaultColor, for: .normal)
         nextButton.isEnabled = true
         
         skipButton.removeFromSuperview()
@@ -89,14 +93,18 @@ class SearchFlowView: UIView {
     }
     
     func doNotMeetTheConditions() {
-        nextButton.setTitleColor(.gray, for: .normal)
+        nextButton.setTitleColor(unableColor, for: .normal)
         nextButton.isEnabled = false
         
         eraseButton.removeFromSuperview()
         addSkipButton()
     }
     
-    @objc func nextButtonDidTap(_ sendor: UIButton) {
+    @objc private func nextButtonDidTap(_ sendor: UIButton) {
         NotificationCenter.default.post(name: .moveSearchFlowNextStep, object: self)
+    }
+    
+    @objc private func eraseButtonDidTap(_ sendor: UIButton) {
+        NotificationCenter.default.post(name: .resetFiltering, object: self)
     }
 }

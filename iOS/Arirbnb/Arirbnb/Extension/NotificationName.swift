@@ -11,4 +11,7 @@ extension Notification.Name {
     static let selectDateDidChange = Notification.Name("selectDateDidChange")
     static let selectDateisChanging = Notification.Name("selectDateisChanging")
     static let moveSearchFlowNextStep = Notification.Name("moveSearchFlowNextStep")
+    static let resetFiltering = Notification.Name("resetFiltering")
+    static let personMinusButtonDidTap = Notification.Name("personMinusButtonDidTap")
+    static let personPlustButtonDidTap = Notification.Name("personPlustButtonDidTap")
 }

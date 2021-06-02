@@ -174,10 +174,11 @@ class DumbaCalendar: UIView {
             .withHorizontalDayMargin(8)
     }
     
-    public func clearCalendarView() {
+   public func reset() {
         self.lowerDay = nil
         self.upperDay = nil
         
         self.calendarView.setContent(makeContent())
+        NotificationCenter.default.post(name: .selectDateisChanging, object: self)
     }
 }

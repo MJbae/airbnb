@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="1143" y="-415"/>
         </scene>
-        <!--Search Filtering View Controller-->
+        <!--Calendar Filtering View Controller-->
         <scene sceneID="VES-B4-reQ">
             <objects>
-                <viewController storyboardIdentifier="SearchFilteringViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xwb-jx-JIp" customClass="SearchFilteringViewController" customModule="Arirbnb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarFilteringViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xwb-jx-JIp" customClass="CalendarFilteringViewController" customModule="Arirbnb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OeZ-wU-qqC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,6 +175,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2z-A0-HkN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2094" y="-415"/>
+        </scene>
+        <!--Price Filtering View Controller-->
+        <scene sceneID="gZx-uq-0MF">
+            <objects>
+                <viewController storyboardIdentifier="PriceFilteringViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qkw-r3-js9" customClass="PriceFilteringViewController" customModule="Arirbnb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jHk-Kk-be8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DnC-a9-N2m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z61-Ei-AdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2954" y="-415"/>
+        </scene>
+        <!--Person Filtering View Controller-->
+        <scene sceneID="09g-Ti-faz">
+            <objects>
+                <viewController storyboardIdentifier="PersonFilteringViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QwT-WE-mwH" customClass="PersonFilteringViewController" customModule="Arirbnb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o1g-d1-HYj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="F4b-Pt-GSo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5P-sW-86g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3778" y="-410"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Rw-5q-GNn">

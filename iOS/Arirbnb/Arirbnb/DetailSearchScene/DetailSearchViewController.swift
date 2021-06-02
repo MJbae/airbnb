@@ -8,7 +8,7 @@
 import UIKit
 
 struct DetailSearchViewControllerAction {
-    let showSearchFilteringView: (Destination) -> Void
+    let showCalendarFilteringView: (Destination) -> Void
 }
 
 class DetailSearchViewController: UIViewController, ViewControllerIdentifierable{
@@ -41,8 +41,17 @@ class DetailSearchViewController: UIViewController, ViewControllerIdentifierable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureBackButton()
         configureNavigation()
         configureCollectionView()
+    }
+    
+    private func configureBackButton() {
+        navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.9367293119, green: 0.3948215544, blue: 0.4507040977, alpha: 1)
+        
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: UIBarButtonItem.Style.done, target: self, action: #selector(back(_:)))
+        navigationItem.leftBarButtonItem = backButton
     }
     
     private func configureNavigation() {
@@ -57,6 +66,7 @@ class DetailSearchViewController: UIViewController, ViewControllerIdentifierable
         definesPresentationContext = true
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        configureNavigationItem()
     }
     private func configureCollectionView() {
         registerSubViews()
@@ -66,6 +76,11 @@ class DetailSearchViewController: UIViewController, ViewControllerIdentifierable
         destinationsCollectionView.register(AdjacentDestinationsCell.nib, forCellWithReuseIdentifier: AdjacentDestinationsCell.reuseIdentifier)
         destinationsCollectionView.register(SearchResultCell.nib, forCellWithReuseIdentifier: SearchResultCell.reuseIdentifier)
         destinationsCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier)
+    }
+    
+    @objc func back(_ sender: UIBarButtonItem) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -136,6 +151,6 @@ extension DetailSearchViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedDestination = filteredDestinations[indexPath.item]
-        action?.showSearchFilteringView(selectedDestination)
+        action?.showCalendarFilteringView(selectedDestination)
     }
 }

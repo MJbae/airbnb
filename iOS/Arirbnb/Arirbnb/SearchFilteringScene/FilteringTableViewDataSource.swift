@@ -9,7 +9,7 @@ import UIKit
 
 class FilteringTableViewDataSource: NSObject, UITableViewDataSource {
     
-    var items: [FilterItem]?
+    private var items: [FilterItem]?
     
     enum FilteringSection: Int, CaseIterable {
         case location, checkInOut, price, numberOfPeople
@@ -28,6 +28,7 @@ class FilteringTableViewDataSource: NSObject, UITableViewDataSource {
         items = FilteringSection.allCases.map({ section in
             FilterItem.init(filteringName: section.filteringName())
         })
+        super.init()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,5 +47,9 @@ class FilteringTableViewDataSource: NSObject, UITableViewDataSource {
     
     func checkInOutChange(_ description: String) {
         items?[FilteringSection.checkInOut.rawValue].filteringValue = description
+    }
+    
+    func numberOfPeopleChange(_ description: String) {
+        items?[FilteringSection.numberOfPeople.rawValue].filteringValue = description
     }
 }

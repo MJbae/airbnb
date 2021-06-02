@@ -28,13 +28,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fV2-84-ax6">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fV2-84-ax6">
                         <rect key="frame" x="295.5" y="49.5" width="20" height="22"/>
+                        <color key="tintColor" red="0.90980392156862744" green="0.29803921568627451" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                         <state key="normal" image="minus.circle" catalog="system"/>
+                        <connections>
+                            <action selector="minusButtonDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HHC-tR-LsT"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiB-Qw-BSc">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LiB-Qw-BSc">
                         <rect key="frame" x="348" y="49.5" width="20" height="22"/>
+                        <color key="tintColor" red="0.90980392156862744" green="0.29803921568627451" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                         <state key="normal" image="plus.circle" catalog="system"/>
+                        <connections>
+                            <action selector="plustButtonDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Cy9-vU-fSd"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utd-xF-8aa">
                         <rect key="frame" x="326.5" y="24" width="10.5" height="73"/>
@@ -61,6 +69,8 @@
             <connections>
                 <outlet property="countLabel" destination="utd-xF-8aa" id="pbC-qu-4U7"/>
                 <outlet property="descriptionLabel" destination="yHL-Rf-d7q" id="8Cq-Se-ITs"/>
+                <outlet property="minusButton" destination="fV2-84-ax6" id="QHo-3m-flJ"/>
+                <outlet property="plusButton" destination="LiB-Qw-BSc" id="chk-e6-X5m"/>
                 <outlet property="titleLabel" destination="egi-1z-UhW" id="aWG-Yp-wOv"/>
             </connections>
             <point key="canvasLocation" x="91.304347826086968" y="146.31696428571428"/>

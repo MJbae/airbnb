@@ -37,7 +37,7 @@
 		FFAB2ACF26620DAB008AEB31 /* ViewControllerIdentifierable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB2ACE26620DAB008AEB31 /* ViewControllerIdentifierable.swift */; };
 		FFAB2AD126620E5F008AEB31 /* UINibCreateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB2AD026620E5F008AEB31 /* UINibCreateable.swift */; };
 		FFCA98B12665CB790057ADDD /* HorizonCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = FFCA98B02665CB790057ADDD /* HorizonCalendar */; };
-		FFCA98B42665CCB90057ADDD /* SearchFilteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98B32665CCB90057ADDD /* SearchFilteringViewController.swift */; };
+		FFCA98B42665CCB90057ADDD /* CalendarFilteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98B32665CCB90057ADDD /* CalendarFilteringViewController.swift */; };
 		FFCA98BA2665CCE70057ADDD /* DumbaCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98B72665CCE70057ADDD /* DumbaCalendar.swift */; };
 		FFCA98BB2665CCE70057ADDD /* DayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98B82665CCE70057ADDD /* DayLabel.swift */; };
 		FFCA98BC2665CCE70057ADDD /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98B92665CCE70057ADDD /* DayRangeIndicatorView.swift */; };
@@ -58,6 +58,10 @@
 		FFCA98DD26660B970057ADDD /* PersonFilteringDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */; };
 		FFCA98DF26660D0A0057ADDD /* PersonFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */; };
 		FFCA98E3266614950057ADDD /* FilteringTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98E2266614950057ADDD /* FilteringTableViewDataSource.swift */; };
+		FFCA98E8266717600057ADDD /* PriceFilteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98E7266717600057ADDD /* PriceFilteringViewController.swift */; };
+		FFCA98EA2667176B0057ADDD /* PersonFilteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98E92667176B0057ADDD /* PersonFilteringViewController.swift */; };
+		FFCA98EC26671AAA0057ADDD /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98EB26671AAA0057ADDD /* UITableView+Extension.swift */; };
+		FFCA98EE26671FF90057ADDD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98ED26671FF90057ADDD /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +116,7 @@
 		FFAB2ACC26620C4A008AEB31 /* ReuseIdentifierable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierable.swift; sourceTree = "<group>"; };
 		FFAB2ACE26620DAB008AEB31 /* ViewControllerIdentifierable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerIdentifierable.swift; sourceTree = "<group>"; };
 		FFAB2AD026620E5F008AEB31 /* UINibCreateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINibCreateable.swift; sourceTree = "<group>"; };
-		FFCA98B32665CCB90057ADDD /* SearchFilteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilteringViewController.swift; sourceTree = "<group>"; };
+		FFCA98B32665CCB90057ADDD /* CalendarFilteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFilteringViewController.swift; sourceTree = "<group>"; };
 		FFCA98B72665CCE70057ADDD /* DumbaCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumbaCalendar.swift; sourceTree = "<group>"; };
 		FFCA98B82665CCE70057ADDD /* DayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayLabel.swift; sourceTree = "<group>"; };
 		FFCA98B92665CCE70057ADDD /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
@@ -132,6 +136,10 @@
 		FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilteringDataSource.swift; sourceTree = "<group>"; };
 		FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilter.swift; sourceTree = "<group>"; };
 		FFCA98E2266614950057ADDD /* FilteringTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringTableViewDataSource.swift; sourceTree = "<group>"; };
+		FFCA98E7266717600057ADDD /* PriceFilteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFilteringViewController.swift; sourceTree = "<group>"; };
+		FFCA98E92667176B0057ADDD /* PersonFilteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilteringViewController.swift; sourceTree = "<group>"; };
+		FFCA98EB26671AAA0057ADDD /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		FFCA98ED26671FF90057ADDD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,7 +392,9 @@
 		FFCA98B22665CCA70057ADDD /* SearchFilteringScene */ = {
 			isa = PBXGroup;
 			children = (
-				FFCA98B32665CCB90057ADDD /* SearchFilteringViewController.swift */,
+				FFCA98E92667176B0057ADDD /* PersonFilteringViewController.swift */,
+				FFCA98E7266717600057ADDD /* PriceFilteringViewController.swift */,
+				FFCA98B32665CCB90057ADDD /* CalendarFilteringViewController.swift */,
 				FFCA98B52665CCCE0057ADDD /* View */,
 				FFCA98DC26660B970057ADDD /* PersonFilteringDataSource.swift */,
 				FFCA98E2266614950057ADDD /* FilteringTableViewDataSource.swift */,
@@ -395,13 +405,10 @@
 		FFCA98B52665CCCE0057ADDD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FFCA98CE2665DE030057ADDD /* Slider */,
-				FFCA98C62665CD360057ADDD /* FilteringCell.swift */,
-				FFCA98C82665CD360057ADDD /* FilteringCell.xib */,
-				FFCA98C72665CD360057ADDD /* SearchFlowView.swift */,
+				FFCA98E4266708480057ADDD /* Cell */,
 				FFCA98B62665CCD60057ADDD /* Calendar */,
-				FFCA98D8266609EE0057ADDD /* PersonFilteringCell.swift */,
-				FFCA98D9266609EE0057ADDD /* PersonFilteringCell.xib */,
+				FFCA98CE2665DE030057ADDD /* Slider */,
+				FFCA98C72665CD360057ADDD /* SearchFlowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -425,6 +432,8 @@
 				FFCA98C02665CD1F0057ADDD /* NotificationName.swift */,
 				FFCA98C12665CD1F0057ADDD /* UserInfoKey.swift */,
 				FFCA98D32665E2570057ADDD /* UIView+Extension.swift */,
+				FFCA98EB26671AAA0057ADDD /* UITableView+Extension.swift */,
+				FFCA98ED26671FF90057ADDD /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -436,6 +445,17 @@
 				FFCA98D12665DE2B0057ADDD /* SliderView.swift */,
 			);
 			path = Slider;
+			sourceTree = "<group>";
+		};
+		FFCA98E4266708480057ADDD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FFCA98C62665CD360057ADDD /* FilteringCell.swift */,
+				FFCA98C82665CD360057ADDD /* FilteringCell.xib */,
+				FFCA98D8266609EE0057ADDD /* PersonFilteringCell.swift */,
+				FFCA98D9266609EE0057ADDD /* PersonFilteringCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -585,6 +605,7 @@
 			files = (
 				FFCA98CD2665CD460057ADDD /* FilterItems.swift in Sources */,
 				FFCA98C22665CD1F0057ADDD /* Date+Extension.swift in Sources */,
+				FFCA98EC26671AAA0057ADDD /* UITableView+Extension.swift in Sources */,
 				FF5767CC2653A28D00F46A43 /* MyReserVationViewController.swift in Sources */,
 				FFCA98C32665CD1F0057ADDD /* Day+Extension.swift in Sources */,
 				FFCA98BC2665CCE70057ADDD /* DayRangeIndicatorView.swift in Sources */,
@@ -597,8 +618,10 @@
 				FFCA98BA2665CCE70057ADDD /* DumbaCalendar.swift in Sources */,
 				FF5767D82653A9EB00F46A43 /* WishListViewModel.swift in Sources */,
 				FFAB2ACD26620C4A008AEB31 /* ReuseIdentifierable.swift in Sources */,
+				FFCA98E8266717600057ADDD /* PriceFilteringViewController.swift in Sources */,
 				FF5767CF2653A2AE00F46A43 /* WishListViewController.swift in Sources */,
 				FF665D1D26574E4200130ABB /* SearchResultCell.swift in Sources */,
+				FFCA98EE26671FF90057ADDD /* UIViewController+Extension.swift in Sources */,
 				FFCA98DF26660D0A0057ADDD /* PersonFilter.swift in Sources */,
 				FFCA98D22665DE2B0057ADDD /* SliderView.swift in Sources */,
 				FF665D302657845700130ABB /* UIImageView+Extension.swift in Sources */,
@@ -614,7 +637,8 @@
 				FFCA98BB2665CCE70057ADDD /* DayLabel.swift in Sources */,
 				FFCA98D02665DE0D0057ADDD /* DumbaSlider.swift in Sources */,
 				FFAB2AD126620E5F008AEB31 /* UINibCreateable.swift in Sources */,
-				FFCA98B42665CCB90057ADDD /* SearchFilteringViewController.swift in Sources */,
+				FFCA98B42665CCB90057ADDD /* CalendarFilteringViewController.swift in Sources */,
+				FFCA98EA2667176B0057ADDD /* PersonFilteringViewController.swift in Sources */,
 				FF5767D52653A99400F46A43 /* MyReserVationViewModel.swift in Sources */,
 				FF5767652652490C00F46A43 /* SceneDelegate.swift in Sources */,
 				FFCA98DD26660B970057ADDD /* PersonFilteringDataSource.swift in Sources */,

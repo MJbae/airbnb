@@ -8,36 +8,36 @@
 import UIKit
 import HorizonCalendar
 
-class SearchFilteringViewController: UIViewController, ViewControllerIdentifierable {
-    static func create(destination: Destination) -> SearchFilteringViewController {
-        guard let vc = storyboard.instantiateViewController(identifier: storyboardID) as? SearchFilteringViewController else {
-            return SearchFilteringViewController()
+struct CalendarFilteringViewControllerAction {
+    let showPriceFilteringView:  (FilteringTableViewDataSource) -> ()
+}
+
+class CalendarFilteringViewController: UIViewController, ViewControllerIdentifierable {
+    static func create(_ action: CalendarFilteringViewControllerAction, _ destination: Destination) -> CalendarFilteringViewController {
+        guard let vc = storyboard.instantiateViewController(identifier: storyboardID) as? CalendarFilteringViewController else {
+            return CalendarFilteringViewController()
         }
+        vc.action = action
         vc.destination = destination
         return vc
     }
     
     private lazy var filteringStackView = UIStackView()
-    private var filteringViews: [UIView] = []
     private lazy var calendar = DumbaCalendar()
-    private lazy var sliderView = SliderView()
-    private lazy var personFilteringTableView = UITableView()
     private lazy var filteringTableView = UITableView()
     private lazy var flowView = SearchFlowView()
     
-    private var nowFilteringStep: Int = 0
+    private var action: CalendarFilteringViewControllerAction?
     private var destination: Destination?
-    private var personFilteringDataSource = PersonFilteringDataSource()
     private var filteringTableViewDataSource = FilteringTableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        filteringViews = [calendar, sliderView, personFilteringTableView]
         configureStackView()
         addSubViews()
-        configurePersonFilteringTableView()
         configureTableView()
         addObservers()
+        configureNavigationItem()
     }
     
     private func configureStackView() {
@@ -49,27 +49,10 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         configureStackViewLayout()
     }
 
-    private func configurePersonFilteringTableView() {
-        let footerView = UIView()
-        footerView.backgroundColor = .clear
-        personFilteringTableView.tableFooterView = footerView
-        personFilteringTableView.translatesAutoresizingMaskIntoConstraints = false
-        personFilteringTableView.register(PersonFilteringCell.nib, forCellReuseIdentifier: PersonFilteringCell.reuseIdentifier)
-        personFilteringTableView.dataSource = personFilteringDataSource
-        personFilteringTableView.delegate = self
-        personFilteringTableView.rowHeight = 100
-        personFilteringTableView.isScrollEnabled = false
-        personFilteringTableView.isUserInteractionEnabled = false
-    }
-    
     private func configureTableView() {
-        filteringTableView.translatesAutoresizingMaskIntoConstraints = false
-        filteringTableView.isScrollEnabled = false
-        filteringTableView.isUserInteractionEnabled = false
         filteringTableView.dataSource = filteringTableViewDataSource
         filteringTableView.delegate = self
-        filteringTableView.register(FilteringCell.nib, forCellReuseIdentifier: FilteringCell.reuseIdentifier)
-        filteringTableView.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        filteringTableView.configureFilteringTableView()
         filteringTableViewDataSource.setDestination(destination?.destinationName)
     }
     
@@ -77,11 +60,12 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
         NotificationCenter.default.addObserver(self, selector: #selector(setDateChange(_:)), name: .selectDateDidChange, object: calendar)
         NotificationCenter.default.addObserver(self, selector: #selector(setDateIsChanging(_:)), name: .selectDateisChanging, object: calendar)
         NotificationCenter.default.addObserver(self, selector: #selector(nextButtonDidTap(_:)), name: .moveSearchFlowNextStep, object: flowView)
+        NotificationCenter.default.addObserver(self, selector: #selector(eraseButtonDidTap(_:)), name: .resetFiltering, object: flowView)
     }
     
     private func addSubViews() {
-        filteringStackView.addArrangedSubview(filteringViews[nowFilteringStep])
-        filteringViews[nowFilteringStep].configureFilteringViewLayout()
+        filteringStackView.addArrangedSubview(calendar)
+        calendar.configureFilteringViewLayout()
         filteringStackView.addArrangedSubview(filteringTableView)
         filteringStackView.addArrangedSubview(flowView)
     }
@@ -98,7 +82,7 @@ class SearchFilteringViewController: UIViewController, ViewControllerIdentifiera
 
 //MARK: - Objc
 
-extension SearchFilteringViewController {
+extension CalendarFilteringViewController {
     @objc func setDateChange(_ notification: Notification) {
         let lowerDay = notification.userInfo?[UserInfoKey.selectedLowerDay] as? Day
         let upperDay = notification.userInfo?[UserInfoKey.selectedUpperDay] as? Day
@@ -117,17 +101,17 @@ extension SearchFilteringViewController {
     }
     
     @objc func nextButtonDidTap(_ notification: Notification) {
-        filteringViews[nowFilteringStep].removeFromSuperview()
-        nowFilteringStep += 1
-        filteringStackView.insertArrangedSubview(filteringViews[nowFilteringStep], at: 0)
-        filteringViews[nowFilteringStep].configureFilteringViewLayout()
-        filteringViews[nowFilteringStep].configure()
-        flowView.doNotMeetTheConditions()
+        action?.showPriceFilteringView(filteringTableViewDataSource)
+    }
+    
+    @objc func eraseButtonDidTap(_ notification: Notification) {
+        calendar.reset()
+        filteringTableView.reloadData()
     }
 }
 
 //MARK: - Delegate
 
-extension SearchFilteringViewController: UITableViewDelegate {
+extension CalendarFilteringViewController: UITableViewDelegate {
     
 }

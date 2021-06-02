@@ -23,7 +23,7 @@ class SliderView: UIView {
         configure()
     }
     
-    @objc override func configure() {
+    func configure() {
         guard let superview = superview else { return }
         slider.translatesAutoresizingMaskIntoConstraints = false
 

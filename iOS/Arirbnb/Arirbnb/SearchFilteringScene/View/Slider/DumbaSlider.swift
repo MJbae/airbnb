@@ -41,8 +41,7 @@ class DumbaSlider: UIControl {
         configure()
     }
     
-    @objc override func configure() {
-        
+    func configure() {
         trackLayer.rangeSlider = self
         trackLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(trackLayer)

@@ -8,6 +8,9 @@
 import Foundation
 
 struct PersonFilter {
-    let personType: String
-    let description: String
+    var personType: String
+    var description: String
+    var count: Int
+    var minusButtonValidate: Bool
+    var plustButtonValidate: Bool
 }

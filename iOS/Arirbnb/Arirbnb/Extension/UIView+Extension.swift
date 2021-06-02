@@ -11,6 +11,4 @@ extension UIView {
     func configureFilteringViewLayout() {
         self.heightAnchor.constraint(equalTo: superview?.heightAnchor ?? NSLayoutDimension(), multiplier: 0.7).isActive = true
     }
-    
-    @objc func configure() { }
 }
