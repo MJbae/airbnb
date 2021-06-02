@@ -9,7 +9,7 @@ import UIKit
 import HorizonCalendar
 
 struct CalendarFilteringViewControllerAction {
-    let showPriceFilteringView:  (FilteringTableViewDataSource) -> ()
+    let showPriceFilteringView:  (SearchResult, FilteringTableViewDataSource) -> ()
 }
 
 class CalendarFilteringViewController: UIViewController, ViewControllerIdentifierable {
@@ -30,6 +30,7 @@ class CalendarFilteringViewController: UIViewController, ViewControllerIdentifie
     private var action: CalendarFilteringViewControllerAction?
     private var destination: Destination?
     private var filteringTableViewDataSource = FilteringTableViewDataSource()
+    private var searchResult = SearchResult()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,18 +91,22 @@ extension CalendarFilteringViewController {
         filteringTableViewDataSource.checkInOutChange(selectedDaysDescription)
         filteringTableView.reloadData()
         
+        searchResult.lowerDay = lowerDay
+        searchResult.upperDay = upperDay
+        
         flowView.meetTheConditions()
     }
     
     @objc func setDateIsChanging(_ notification: Notification) {
         filteringTableViewDataSource.checkInOutChange("")
         filteringTableView.reloadData()
-        
         flowView.doNotMeetTheConditions()
+        searchResult.lowerDay = nil
+        searchResult.upperDay = nil
     }
     
     @objc func nextButtonDidTap(_ notification: Notification) {
-        action?.showPriceFilteringView(filteringTableViewDataSource)
+        action?.showPriceFilteringView(searchResult, filteringTableViewDataSource)
     }
     
     @objc func eraseButtonDidTap(_ notification: Notification) {

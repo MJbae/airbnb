@@ -62,6 +62,10 @@
 		FFCA98EA2667176B0057ADDD /* PersonFilteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98E92667176B0057ADDD /* PersonFilteringViewController.swift */; };
 		FFCA98EC26671AAA0057ADDD /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98EB26671AAA0057ADDD /* UITableView+Extension.swift */; };
 		FFCA98EE26671FF90057ADDD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98ED26671FF90057ADDD /* UIViewController+Extension.swift */; };
+		FFCA98F3266744460057ADDD /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98F2266744460057ADDD /* SearchResultViewController.swift */; };
+		FFCA98F6266747650057ADDD /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98F5266747650057ADDD /* SearchResult.swift */; };
+		FFCA98F926674CE90057ADDD /* FilteringResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98F726674CE90057ADDD /* FilteringResultCell.swift */; };
+		FFCA98FA26674CE90057ADDD /* FilteringResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCA98F826674CE90057ADDD /* FilteringResultCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +144,10 @@
 		FFCA98E92667176B0057ADDD /* PersonFilteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilteringViewController.swift; sourceTree = "<group>"; };
 		FFCA98EB26671AAA0057ADDD /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		FFCA98ED26671FF90057ADDD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		FFCA98F2266744460057ADDD /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		FFCA98F5266747650057ADDD /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		FFCA98F726674CE90057ADDD /* FilteringResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringResultCell.swift; sourceTree = "<group>"; };
+		FFCA98F826674CE90057ADDD /* FilteringResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilteringResultCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,7 @@
 		FF5767612652490C00F46A43 /* Arirbnb */ = {
 			isa = PBXGroup;
 			children = (
+				FFCA98F1266744340057ADDD /* SearchResultScene */,
 				FFCA98BD2665CCFC0057ADDD /* Extension */,
 				FFCA98B22665CCA70057ADDD /* SearchFilteringScene */,
 				FFAB2ACB26620C2B008AEB31 /* Protocols */,
@@ -375,6 +384,7 @@
 				FF665D3B265B78B200130ABB /* Destination.swift */,
 				FFCA98CC2665CD460057ADDD /* FilterItems.swift */,
 				FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */,
+				FFCA98F5266747650057ADDD /* SearchResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,6 +466,24 @@
 				FFCA98D9266609EE0057ADDD /* PersonFilteringCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		FFCA98F1266744340057ADDD /* SearchResultScene */ = {
+			isa = PBXGroup;
+			children = (
+				FFCA98F2266744460057ADDD /* SearchResultViewController.swift */,
+				FFCA98F4266745670057ADDD /* View */,
+			);
+			path = SearchResultScene;
+			sourceTree = "<group>";
+		};
+		FFCA98F4266745670057ADDD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFCA98F726674CE90057ADDD /* FilteringResultCell.swift */,
+				FFCA98F826674CE90057ADDD /* FilteringResultCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -575,6 +603,7 @@
 				FF57676F2652490E00F46A43 /* LaunchScreen.storyboard in Resources */,
 				FF57676C2652490E00F46A43 /* Assets.xcassets in Resources */,
 				FFCA98DB266609EE0057ADDD /* PersonFilteringCell.xib in Resources */,
+				FFCA98FA26674CE90057ADDD /* FilteringResultCell.xib in Resources */,
 				FF5767B52653311E00F46A43 /* ThemeDestinationsCell.xib in Resources */,
 				FF665D1E26574E4200130ABB /* SearchResultCell.xib in Resources */,
 				FF57676A2652490C00F46A43 /* Main.storyboard in Resources */,
@@ -625,16 +654,19 @@
 				FFCA98DF26660D0A0057ADDD /* PersonFilter.swift in Sources */,
 				FFCA98D22665DE2B0057ADDD /* SliderView.swift in Sources */,
 				FF665D302657845700130ABB /* UIImageView+Extension.swift in Sources */,
+				FFCA98F6266747650057ADDD /* SearchResult.swift in Sources */,
 				FF5767B42653311E00F46A43 /* ThemeDestinationsCell.swift in Sources */,
 				FFCA98DA266609EE0057ADDD /* PersonFilteringCell.swift in Sources */,
 				FFCA98C52665CD1F0057ADDD /* UserInfoKey.swift in Sources */,
 				FF665D3C265B78B200130ABB /* Destination.swift in Sources */,
 				FF5767A22652935F00F46A43 /* AdjacentDestinationsCell.swift in Sources */,
+				FFCA98F3266744460057ADDD /* SearchResultViewController.swift in Sources */,
 				FF5767672652490C00F46A43 /* MainSearchViewController.swift in Sources */,
 				FFCA98CA2665CD360057ADDD /* SearchFlowView.swift in Sources */,
 				FF5767632652490C00F46A43 /* AppDelegate.swift in Sources */,
 				FFCA98D42665E2570057ADDD /* UIView+Extension.swift in Sources */,
 				FFCA98BB2665CCE70057ADDD /* DayLabel.swift in Sources */,
+				FFCA98F926674CE90057ADDD /* FilteringResultCell.swift in Sources */,
 				FFCA98D02665DE0D0057ADDD /* DumbaSlider.swift in Sources */,
 				FFAB2AD126620E5F008AEB31 /* UINibCreateable.swift in Sources */,
 				FFCA98B42665CCB90057ADDD /* CalendarFilteringViewController.swift in Sources */,

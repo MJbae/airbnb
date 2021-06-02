@@ -30,20 +30,26 @@ public class AirbnbSceneFlowCoordinator {
     }
     
     func showCalendarFilteringView(destination: Destination) {
-        let calendarFilteringVCACtion = CalendarFilteringViewControllerAction(showPriceFilteringView: showPriceFilteringView(_:))
+        let calendarFilteringVCACtion = CalendarFilteringViewControllerAction(showPriceFilteringView: showPriceFilteringView(_:_:))
         let calendarFilteringVC = CalendarFilteringViewController.create(calendarFilteringVCACtion, destination)
         calendarFilteringVC.hidesBottomBarWhenPushed = true
         searachSceneNavigationController?.pushViewController(calendarFilteringVC, animated: true)
     }
     
-    func showPriceFilteringView(_ dataSrouce: FilteringTableViewDataSource) {
-        let action = PriceFilteringViewControllerAction(showPersonFilteringView: showPersonFilteringView(_:))
-        let priceFilteringVC = PriceFilteringViewController.create(action, dataSrouce)
+    func showPriceFilteringView(_ searchResult: SearchResult, _ dataSrouce: FilteringTableViewDataSource) {
+        let action = PriceFilteringViewControllerAction(showPersonFilteringView: showPersonFilteringView(_:_:))
+        let priceFilteringVC = PriceFilteringViewController.create(action, searchResult, dataSrouce)
         searachSceneNavigationController?.pushViewController(priceFilteringVC, animated: true)
     }
     
-    func showPersonFilteringView(_ dataSrouce: FilteringTableViewDataSource) {
-        let personFilteringVC = PersonFilteringViewController.create(PersonFilteringViewControllerAction(), dataSrouce)
+    func showPersonFilteringView(_ searchResult: SearchResult?, _ dataSrouce: FilteringTableViewDataSource) {
+        let action = PersonFilteringViewControllerAction(showSearchResultView: showSearchResultView(_:))
+        let personFilteringVC = PersonFilteringViewController.create(action, searchResult, dataSrouce)
         searachSceneNavigationController?.pushViewController(personFilteringVC, animated: true)
+    }
+    
+    func showSearchResultView(_ searchResult: SearchResult?) {
+        let searchResultVC = SearchResultViewController.create(SearchResultViewControllerAction(), searchResult)
+        searachSceneNavigationController?.pushViewController(searchResultVC, animated: true)
     }
 }

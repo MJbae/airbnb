@@ -8,14 +8,15 @@
 import UIKit
 
 struct PriceFilteringViewControllerAction {
-    let showPersonFilteringView: (FilteringTableViewDataSource) -> ()
+    let showPersonFilteringView: (SearchResult?, FilteringTableViewDataSource) -> ()
 }
 class PriceFilteringViewController: UIViewController, ViewControllerIdentifierable {
-    static func create(_ action: PriceFilteringViewControllerAction, _ filerlingDataSource: FilteringTableViewDataSource) -> PriceFilteringViewController {
+    static func create(_ action: PriceFilteringViewControllerAction, _ searchResult: SearchResult, _ filerlingDataSource: FilteringTableViewDataSource) -> PriceFilteringViewController {
         guard let vc = storyboard.instantiateViewController(identifier: storyboardID) as? PriceFilteringViewController else {
             return PriceFilteringViewController()
         }
         vc.action = action
+        vc.searchResult = searchResult
         vc.filteringTableViewDataSource = filerlingDataSource
         return vc
     }
@@ -25,6 +26,7 @@ class PriceFilteringViewController: UIViewController, ViewControllerIdentifierab
     private lazy var filteringTableView = UITableView()
     private lazy var flowView = SearchFlowView()
     
+    private var searchResult: SearchResult?
     private var action: PriceFilteringViewControllerAction?
     private var filteringTableViewDataSource = FilteringTableViewDataSource()
     
@@ -81,7 +83,7 @@ class PriceFilteringViewController: UIViewController, ViewControllerIdentifierab
 
 extension PriceFilteringViewController {
     @objc func nextButtonDidTap(_ notification: Notification) {
-        action?.showPersonFilteringView(filteringTableViewDataSource)
+        action?.showPersonFilteringView(searchResult, filteringTableViewDataSource)
     }
     
     @objc func eraseButtonDidTap(_ notification: Notification) {

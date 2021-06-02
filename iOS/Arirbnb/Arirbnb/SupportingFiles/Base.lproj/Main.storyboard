@@ -206,6 +206,67 @@
             </objects>
             <point key="canvasLocation" x="3778" y="-410"/>
         </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="NSZ-R7-Z9V">
+            <objects>
+                <viewController storyboardIdentifier="SearchResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ySM-Th-yt9" customClass="SearchResultViewController" customModule="Arirbnb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cdT-wX-2E5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e91-Gl-HEX">
+                                <rect key="frame" x="16" y="148" width="382" height="714"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Li-og-2FT">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ySM-Th-yt9" id="f5o-RX-2yp"/>
+                                    <outlet property="delegate" destination="ySM-Th-yt9" id="4sN-yA-h1V"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양재 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft6-pc-yhc">
+                                <rect key="frame" x="16" y="76" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300개 이상의 숙소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwa-Rn-aHJ">
+                                <rect key="frame" x="16" y="105" width="382" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HWS-th-Bn4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HWS-th-Bn4" firstAttribute="bottom" secondItem="e91-Gl-HEX" secondAttribute="bottom" id="4Sl-9k-Aps"/>
+                            <constraint firstItem="e91-Gl-HEX" firstAttribute="leading" secondItem="HWS-th-Bn4" secondAttribute="leading" constant="16" id="Bxt-CU-6Gb"/>
+                            <constraint firstItem="gwa-Rn-aHJ" firstAttribute="top" secondItem="ft6-pc-yhc" secondAttribute="bottom" constant="8" id="EW5-WS-yUG"/>
+                            <constraint firstItem="HWS-th-Bn4" firstAttribute="trailing" secondItem="ft6-pc-yhc" secondAttribute="trailing" constant="16" id="Fhd-d0-YfB"/>
+                            <constraint firstItem="gwa-Rn-aHJ" firstAttribute="leading" secondItem="HWS-th-Bn4" secondAttribute="leading" constant="16" id="Pu8-iL-Oce"/>
+                            <constraint firstItem="HWS-th-Bn4" firstAttribute="trailing" secondItem="gwa-Rn-aHJ" secondAttribute="trailing" constant="16" id="iws-4z-bFY"/>
+                            <constraint firstItem="e91-Gl-HEX" firstAttribute="top" secondItem="gwa-Rn-aHJ" secondAttribute="bottom" constant="16" id="lgx-kj-7Hm"/>
+                            <constraint firstItem="ft6-pc-yhc" firstAttribute="leading" secondItem="HWS-th-Bn4" secondAttribute="leading" constant="16" id="nKl-Ar-PKD"/>
+                            <constraint firstItem="HWS-th-Bn4" firstAttribute="trailing" secondItem="e91-Gl-HEX" secondAttribute="trailing" constant="16" id="r3s-W1-bzJ"/>
+                            <constraint firstItem="ft6-pc-yhc" firstAttribute="top" secondItem="HWS-th-Bn4" secondAttribute="top" constant="32" id="vj8-kz-seP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="FilteringLabel" destination="ft6-pc-yhc" id="3lk-aa-uw6"/>
+                        <outlet property="accommodationCountLabel" destination="gwa-Rn-aHJ" id="hx0-yy-KVS"/>
+                        <outlet property="accomodationCollectionView" destination="e91-Gl-HEX" id="WwL-aC-w9I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajx-OO-IQb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4660.8695652173919" y="-410.49107142857139"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Rw-5q-GNn">
             <objects>
