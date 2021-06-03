@@ -44,8 +44,6 @@ extension SearchResultViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilteringResultCell.reuseIdentifier, for: indexPath) as? FilteringResultCell
         return cell ?? UICollectionViewCell()
     }
-    
-    
 }
 
 extension SearchResultViewController: UICollectionViewDelegateFlowLayout {

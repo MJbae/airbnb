@@ -21,10 +21,9 @@
 		FF5767B52653311E00F46A43 /* ThemeDestinationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5767B32653311E00F46A43 /* ThemeDestinationsCell.xib */; };
 		FF5767BC26535AC200F46A43 /* HeroImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767BB26535AC200F46A43 /* HeroImageCell.swift */; };
 		FF5767BF2653655400F46A43 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767BE2653655400F46A43 /* HeaderView.swift */; };
-		FF5767CC2653A28D00F46A43 /* MyReserVationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767CB2653A28D00F46A43 /* MyReserVationViewController.swift */; };
+		FF5767CC2653A28D00F46A43 /* LoginMyReserVationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767CB2653A28D00F46A43 /* LoginMyReserVationViewController.swift */; };
 		FF5767CF2653A2AE00F46A43 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767CE2653A2AE00F46A43 /* WishListViewController.swift */; };
 		FF5767D22653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767D12653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift */; };
-		FF5767D52653A99400F46A43 /* MyReserVationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767D42653A99400F46A43 /* MyReserVationViewModel.swift */; };
 		FF5767D82653A9EB00F46A43 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767D72653A9EB00F46A43 /* WishListViewModel.swift */; };
 		FF5767DC2653AC3000F46A43 /* FlowTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767DB2653AC3000F46A43 /* FlowTabBarController.swift */; };
 		FF5767E32653B48700F46A43 /* DetailSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767E22653B48700F46A43 /* DetailSearchViewController.swift */; };
@@ -66,6 +65,12 @@
 		FFCA98F6266747650057ADDD /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98F5266747650057ADDD /* SearchResult.swift */; };
 		FFCA98F926674CE90057ADDD /* FilteringResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98F726674CE90057ADDD /* FilteringResultCell.swift */; };
 		FFCA98FA26674CE90057ADDD /* FilteringResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCA98F826674CE90057ADDD /* FilteringResultCell.xib */; };
+		FFCA98FC2668C1030057ADDD /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98FB2668C1030057ADDD /* LoginManager.swift */; };
+		FFCA98FE2668C3510057ADDD /* LogoutMyReserVationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98FD2668C3510057ADDD /* LogoutMyReserVationViewController.swift */; };
+		FFCA99002668C3B10057ADDD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA98FF2668C3B10057ADDD /* LoginViewController.swift */; };
+		FFCA99032668C6EC0057ADDD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFCA99022668C6EC0057ADDD /* Alamofire */; };
+		FFCA99062668C7100057ADDD /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FFCA99052668C7100057ADDD /* KeychainSwift */; };
+		FFCA99082668CB380057ADDD /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA99072668CB380057ADDD /* LoginNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,10 +111,9 @@
 		FF5767B32653311E00F46A43 /* ThemeDestinationsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeDestinationsCell.xib; sourceTree = "<group>"; };
 		FF5767BB26535AC200F46A43 /* HeroImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageCell.swift; sourceTree = "<group>"; };
 		FF5767BE2653655400F46A43 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		FF5767CB2653A28D00F46A43 /* MyReserVationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReserVationViewController.swift; sourceTree = "<group>"; };
+		FF5767CB2653A28D00F46A43 /* LoginMyReserVationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMyReserVationViewController.swift; sourceTree = "<group>"; };
 		FF5767CE2653A2AE00F46A43 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		FF5767D12653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbnbSceneFlowCoordinator.swift; sourceTree = "<group>"; };
-		FF5767D42653A99400F46A43 /* MyReserVationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReserVationViewModel.swift; sourceTree = "<group>"; };
 		FF5767D72653A9EB00F46A43 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
 		FF5767DB2653AC3000F46A43 /* FlowTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTabBarController.swift; sourceTree = "<group>"; };
 		FF5767E22653B48700F46A43 /* DetailSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,10 @@
 		FFCA98F5266747650057ADDD /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		FFCA98F726674CE90057ADDD /* FilteringResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringResultCell.swift; sourceTree = "<group>"; };
 		FFCA98F826674CE90057ADDD /* FilteringResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilteringResultCell.xib; sourceTree = "<group>"; };
+		FFCA98FB2668C1030057ADDD /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		FFCA98FD2668C3510057ADDD /* LogoutMyReserVationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutMyReserVationViewController.swift; sourceTree = "<group>"; };
+		FFCA98FF2668C3B10057ADDD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FFCA99072668CB380057ADDD /* LoginNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFCA98D72665FE2F0057ADDD /* SnapKit in Frameworks */,
+				FFCA99032668C6EC0057ADDD /* Alamofire in Frameworks */,
+				FFCA99062668C7100057ADDD /* KeychainSwift in Frameworks */,
 				FFCA98B12665CB790057ADDD /* HorizonCalendar in Frameworks */,
 				FF665D2E2657841000130ABB /* Kingfisher in Frameworks */,
 			);
@@ -201,6 +211,9 @@
 		FF5767612652490C00F46A43 /* Arirbnb */ = {
 			isa = PBXGroup;
 			children = (
+				FFCA99072668CB380057ADDD /* LoginNavigationController.swift */,
+				FFCA98FF2668C3B10057ADDD /* LoginViewController.swift */,
+				FFCA98FB2668C1030057ADDD /* LoginManager.swift */,
 				FFCA98F1266744340057ADDD /* SearchResultScene */,
 				FFCA98BD2665CCFC0057ADDD /* Extension */,
 				FFCA98B22665CCA70057ADDD /* SearchFilteringScene */,
@@ -305,7 +318,8 @@
 		FF5767C82653A21D00F46A43 /* MyReservationScene */ = {
 			isa = PBXGroup;
 			children = (
-				FF5767D32653A98400F46A43 /* ViewModel */,
+				FFCA98FD2668C3510057ADDD /* LogoutMyReserVationViewController.swift */,
+				FF5767CB2653A28D00F46A43 /* LoginMyReserVationViewController.swift */,
 				FF5767CA2653A25E00F46A43 /* View */,
 			);
 			path = MyReservationScene;
@@ -314,7 +328,6 @@
 		FF5767CA2653A25E00F46A43 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FF5767CB2653A28D00F46A43 /* MyReserVationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,14 +347,6 @@
 				FF5767DB2653AC3000F46A43 /* FlowTabBarController.swift */,
 			);
 			path = Flow;
-			sourceTree = "<group>";
-		};
-		FF5767D32653A98400F46A43 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				FF5767D42653A99400F46A43 /* MyReserVationViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FF5767D62653A9DF00F46A43 /* ViewModel */ = {
@@ -506,6 +511,8 @@
 				FF665D2D2657841000130ABB /* Kingfisher */,
 				FFCA98B02665CB790057ADDD /* HorizonCalendar */,
 				FFCA98D62665FE2F0057ADDD /* SnapKit */,
+				FFCA99022668C6EC0057ADDD /* Alamofire */,
+				FFCA99052668C7100057ADDD /* KeychainSwift */,
 			);
 			productName = Arirbnb;
 			productReference = FF57675F2652490C00F46A43 /* Arirbnb.app */;
@@ -582,6 +589,8 @@
 				FF665D2C2657841000130ABB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FFCA98AF2665CB790057ADDD /* XCRemoteSwiftPackageReference "HorizonCalendar" */,
 				FFCA98D52665FE2F0057ADDD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FFCA99012668C6EC0057ADDD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FFCA99042668C7100057ADDD /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = FF5767602652490C00F46A43 /* Products */;
 			projectDirPath = "";
@@ -635,16 +644,18 @@
 				FFCA98CD2665CD460057ADDD /* FilterItems.swift in Sources */,
 				FFCA98C22665CD1F0057ADDD /* Date+Extension.swift in Sources */,
 				FFCA98EC26671AAA0057ADDD /* UITableView+Extension.swift in Sources */,
-				FF5767CC2653A28D00F46A43 /* MyReserVationViewController.swift in Sources */,
+				FF5767CC2653A28D00F46A43 /* LoginMyReserVationViewController.swift in Sources */,
 				FFCA98C32665CD1F0057ADDD /* Day+Extension.swift in Sources */,
 				FFCA98BC2665CCE70057ADDD /* DayRangeIndicatorView.swift in Sources */,
 				FF5767DC2653AC3000F46A43 /* FlowTabBarController.swift in Sources */,
+				FFCA99082668CB380057ADDD /* LoginNavigationController.swift in Sources */,
 				FF5767E32653B48700F46A43 /* DetailSearchViewController.swift in Sources */,
 				FFAB2ACF26620DAB008AEB31 /* ViewControllerIdentifierable.swift in Sources */,
 				FFCA98C42665CD1F0057ADDD /* NotificationName.swift in Sources */,
 				FFCA98E3266614950057ADDD /* FilteringTableViewDataSource.swift in Sources */,
 				FF5767D22653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift in Sources */,
 				FFCA98BA2665CCE70057ADDD /* DumbaCalendar.swift in Sources */,
+				FFCA98FC2668C1030057ADDD /* LoginManager.swift in Sources */,
 				FF5767D82653A9EB00F46A43 /* WishListViewModel.swift in Sources */,
 				FFAB2ACD26620C4A008AEB31 /* ReuseIdentifierable.swift in Sources */,
 				FFCA98E8266717600057ADDD /* PriceFilteringViewController.swift in Sources */,
@@ -656,6 +667,7 @@
 				FF665D302657845700130ABB /* UIImageView+Extension.swift in Sources */,
 				FFCA98F6266747650057ADDD /* SearchResult.swift in Sources */,
 				FF5767B42653311E00F46A43 /* ThemeDestinationsCell.swift in Sources */,
+				FFCA98FE2668C3510057ADDD /* LogoutMyReserVationViewController.swift in Sources */,
 				FFCA98DA266609EE0057ADDD /* PersonFilteringCell.swift in Sources */,
 				FFCA98C52665CD1F0057ADDD /* UserInfoKey.swift in Sources */,
 				FF665D3C265B78B200130ABB /* Destination.swift in Sources */,
@@ -670,8 +682,8 @@
 				FFCA98D02665DE0D0057ADDD /* DumbaSlider.swift in Sources */,
 				FFAB2AD126620E5F008AEB31 /* UINibCreateable.swift in Sources */,
 				FFCA98B42665CCB90057ADDD /* CalendarFilteringViewController.swift in Sources */,
+				FFCA99002668C3B10057ADDD /* LoginViewController.swift in Sources */,
 				FFCA98EA2667176B0057ADDD /* PersonFilteringViewController.swift in Sources */,
-				FF5767D52653A99400F46A43 /* MyReserVationViewModel.swift in Sources */,
 				FF5767652652490C00F46A43 /* SceneDelegate.swift in Sources */,
 				FFCA98DD26660B970057ADDD /* PersonFilteringDataSource.swift in Sources */,
 				FFCA98C92665CD360057ADDD /* FilteringCell.swift in Sources */,
@@ -1035,6 +1047,22 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		FFCA99012668C6EC0057ADDD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+		FFCA99042668C7100057ADDD /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1052,6 +1080,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FFCA98D52665FE2F0057ADDD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		FFCA99022668C6EC0057ADDD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFCA99012668C6EC0057ADDD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		FFCA99052668C7100057ADDD /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFCA99042668C7100057ADDD /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,20 +8,31 @@
 import UIKit
 
 public class AirbnbSceneFlowCoordinator {
+    
     private var tabBarController: UITabBarController?
     private var searachSceneNavigationController: UINavigationController?
-
+    
     func start() -> UITabBarController {
         let mainSearchViewControllerAction = MainSearchViewControllerAction(showDetailSearchView: showDetailSearchView)
         let mainSearchVC = MainSearchViewController.create(mainSearchViewControllerAction, [[Destination.init(destinationName: "HeroImage")],MockAdjacentDestination.mockDatas, MockThemeDestination.mockDatas])
         searachSceneNavigationController = UINavigationController(rootViewController: mainSearchVC)
         let wishListVC = WishListViewController.create()
-        let myreservationVC = MyReserVationViewController()
-        
-        tabBarController = FlowTabBarController(searachSceneNavigationController ?? UINavigationController(), wishListVC, myreservationVC)
-        return tabBarController ?? UITabBarController()
+
+        if !LoginManager.shared.isLoging() {
+            let logoutMyReserVationVC = LogoutMyReserVationViewController.create()
+            tabBarController = FlowTabBarController.createLogoutedTabBarController(searachSceneNavigationController ?? UINavigationController(), wishListVC, logoutMyReserVationVC)
+            return tabBarController ?? UITabBarController()
+        } else {
+            let loginMyReserVationVC = LoginMyReserVationViewController()
+            tabBarController = FlowTabBarController.createLoginedTabBarController(searachSceneNavigationController ?? UINavigationController(), wishListVC, loginMyReserVationVC)
+            return tabBarController ?? UITabBarController()
+        }
     }
-    
+}
+
+//MARK: - ViewControllers Actions
+
+extension AirbnbSceneFlowCoordinator {
     func showDetailSearchView() {
         let detailSearchVCAction = DetailSearchViewControllerAction(showCalendarFilteringView: showCalendarFilteringView(destination:))
         let detailSerchVC = DetailSearchViewController.create(detailSearchVCAction, [MockAdjacentDestination.mockDatas, MockSearchedDestinaion.mockDatas])

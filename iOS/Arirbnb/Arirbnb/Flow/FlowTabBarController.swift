@@ -13,8 +13,14 @@ class FlowTabBarController: UITabBarController {
         super.viewDidLoad()
     }
     
-    convenience init(_ searchSceneNavigationController: UINavigationController, _ wishListVC: WishListViewController, _ myReservationVC: MyReserVationViewController) {
+    convenience private init(_ searchSceneNavigationController: UINavigationController, _ wishListVC: UIViewController, _ myReservationVC: UIViewController) {
         self.init()
+
+        viewControllers = [UINavigationController()]
+        viewControllers = [searchSceneNavigationController, wishListVC, myReservationVC]
+    }
+    
+    static func createLoginedTabBarController(_ searchSceneNavigationController: UINavigationController, _ wishListVC: UIViewController, _ myReservationVC: UIViewController) -> FlowTabBarController {
         
         let searchBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass"), selectedImage: nil)
         let wishListBarItem = UITabBarItem(title: "위시리스트", image: UIImage(systemName: "heart"), selectedImage: nil)
@@ -24,7 +30,18 @@ class FlowTabBarController: UITabBarController {
         wishListVC.tabBarItem = wishListBarItem
         myReservationVC.tabBarItem = reservationBarItem
         
-        viewControllers = [UINavigationController()]
-        viewControllers = [searchSceneNavigationController, wishListVC, myReservationVC]
+        return FlowTabBarController.init(searchSceneNavigationController, wishListVC, myReservationVC)
+    }
+    
+    static func createLogoutedTabBarController(_ searchSceneNavigationController: UINavigationController, _ wishListVC: UIViewController, _ myReservationVC: LogoutMyReserVationViewController) -> FlowTabBarController {
+        let searchBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass"), selectedImage: nil)
+        let wishListBarItem = UITabBarItem(title: "위시리스트", image: UIImage(systemName: "heart"), selectedImage: nil)
+        let reservationBarItem = UITabBarItem(title: "로그인", image: UIImage(systemName: "person"), selectedImage: nil)
+
+        searchSceneNavigationController.tabBarItem = searchBarItem
+        wishListVC.tabBarItem = wishListBarItem
+        myReservationVC.tabBarItem = reservationBarItem
+        
+        return FlowTabBarController.init(searchSceneNavigationController, wishListVC, myReservationVC)
     }
 }
