@@ -15,4 +15,11 @@ class FilteringResultCell: UICollectionViewCell, UINibCreateable {
     @IBOutlet private weak var accommodationNameLabel: UILabel!
     @IBOutlet private weak var pricePerDayLabel: UILabel!
     @IBOutlet private weak var totalPriceLabel: UILabel!
+    
+    func configure(accommodation: Accommodation, totalPrice: Int?) {
+        thumbImageView.load(url: accommodation.mainImageUrl)
+        accommodationNameLabel.text = accommodation.name
+        pricePerDayLabel.text = String(accommodation.price ?? 0) + "원"
+        totalPriceLabel.text = String(totalPrice ?? 0) + "원"
+    }
 }

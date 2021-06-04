@@ -9,7 +9,7 @@ import UIKit
 import HorizonCalendar
 
 struct CalendarFilteringViewControllerAction {
-    let showPriceFilteringView:  (SearchResult, FilteringTableViewDataSource) -> ()
+    let showPriceFilteringView:  (FilteringTableViewDataSource) -> ()
 }
 
 class CalendarFilteringViewController: UIViewController, ViewControllerIdentifierable {
@@ -30,7 +30,6 @@ class CalendarFilteringViewController: UIViewController, ViewControllerIdentifie
     private var action: CalendarFilteringViewControllerAction?
     private var destination: Destination?
     private var filteringTableViewDataSource = FilteringTableViewDataSource()
-    private var searchResult = SearchResult()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +38,7 @@ class CalendarFilteringViewController: UIViewController, ViewControllerIdentifie
         configureTableView()
         addObservers()
         configureNavigationItem()
+        SearchResultManager.shared.setDestination(destination?.destinationName)
     }
     
     private func configureStackView() {
@@ -87,13 +87,14 @@ extension CalendarFilteringViewController {
     @objc func setDateChange(_ notification: Notification) {
         let lowerDay = notification.userInfo?[UserInfoKey.selectedLowerDay] as? Day
         let upperDay = notification.userInfo?[UserInfoKey.selectedUpperDay] as? Day
+        let totalDay = notification.userInfo?[UserInfoKey.selectedTotalDay] as? Int
+        
         let selectedDaysDescription = "\(lowerDay?.descriptionOnlyMonthDayForKorean ?? "") - \(upperDay?.descriptionOnlyMonthDayForKorean ?? "")"
         filteringTableViewDataSource.checkInOutChange(selectedDaysDescription)
         filteringTableView.reloadData()
         
-        searchResult.lowerDay = lowerDay
-        searchResult.upperDay = upperDay
-        
+        SearchResultManager.shared.setDate(lowerDay, upperDay, totalDay)
+    
         flowView.meetTheConditions()
     }
     
@@ -101,12 +102,12 @@ extension CalendarFilteringViewController {
         filteringTableViewDataSource.checkInOutChange("")
         filteringTableView.reloadData()
         flowView.doNotMeetTheConditions()
-        searchResult.lowerDay = nil
-        searchResult.upperDay = nil
+        
+        SearchResultManager.shared.clearDate()
     }
     
     @objc func nextButtonDidTap(_ notification: Notification) {
-        action?.showPriceFilteringView(searchResult, filteringTableViewDataSource)
+        action?.showPriceFilteringView(filteringTableViewDataSource)
     }
     
     @objc func eraseButtonDidTap(_ notification: Notification) {

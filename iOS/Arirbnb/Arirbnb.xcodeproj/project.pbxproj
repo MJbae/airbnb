@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF0C73242668FB51000904E1 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C73232668FB51000904E1 /* Alertable.swift */; };
+		FF0C732B26690241000904E1 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = FF0C732A26690241000904E1 /* JWTDecode */; };
+		FF0C732D2669047F000904E1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C732C2669047F000904E1 /* NetworkService.swift */; };
+		FF0C7330266904BB000904E1 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C732F266904BB000904E1 /* EndPoint.swift */; };
+		FF0C7332266912F6000904E1 /* SearchResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C7331266912F6000904E1 /* SearchResultManager.swift */; };
+		FF0C733426698EB2000904E1 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C733326698EB2000904E1 /* Accommodation.swift */; };
+		FF0C73792669E767000904E1 /* DetailAccommodationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C73782669E767000904E1 /* DetailAccommodationViewController.swift */; };
+		FF0C737B2669E7FB000904E1 /* DetailAccommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C737A2669E7FB000904E1 /* DetailAccommodation.swift */; };
+		FF0C737E2669F729000904E1 /* WishListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C737C2669F729000904E1 /* WishListCell.swift */; };
+		FF0C737F2669F729000904E1 /* WishListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0C737D2669F729000904E1 /* WishListCell.xib */; };
+		FF0C73812669F80A000904E1 /* WishListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C73802669F80A000904E1 /* WishListItem.swift */; };
 		FF5767632652490C00F46A43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767622652490C00F46A43 /* AppDelegate.swift */; };
 		FF5767652652490C00F46A43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767642652490C00F46A43 /* SceneDelegate.swift */; };
 		FF5767672652490C00F46A43 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767662652490C00F46A43 /* MainSearchViewController.swift */; };
@@ -22,9 +33,8 @@
 		FF5767BC26535AC200F46A43 /* HeroImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767BB26535AC200F46A43 /* HeroImageCell.swift */; };
 		FF5767BF2653655400F46A43 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767BE2653655400F46A43 /* HeaderView.swift */; };
 		FF5767CC2653A28D00F46A43 /* LoginMyReserVationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767CB2653A28D00F46A43 /* LoginMyReserVationViewController.swift */; };
-		FF5767CF2653A2AE00F46A43 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767CE2653A2AE00F46A43 /* WishListViewController.swift */; };
+		FF5767CF2653A2AE00F46A43 /* LoginWishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767CE2653A2AE00F46A43 /* LoginWishListViewController.swift */; };
 		FF5767D22653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767D12653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift */; };
-		FF5767D82653A9EB00F46A43 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767D72653A9EB00F46A43 /* WishListViewModel.swift */; };
 		FF5767DC2653AC3000F46A43 /* FlowTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767DB2653AC3000F46A43 /* FlowTabBarController.swift */; };
 		FF5767E32653B48700F46A43 /* DetailSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5767E22653B48700F46A43 /* DetailSearchViewController.swift */; };
 		FF665D1D26574E4200130ABB /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF665D1B26574E4200130ABB /* SearchResultCell.swift */; };
@@ -71,6 +81,7 @@
 		FFCA99032668C6EC0057ADDD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFCA99022668C6EC0057ADDD /* Alamofire */; };
 		FFCA99062668C7100057ADDD /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FFCA99052668C7100057ADDD /* KeychainSwift */; };
 		FFCA99082668CB380057ADDD /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA99072668CB380057ADDD /* LoginNavigationController.swift */; };
+		FFCA990A2668D1B60057ADDD /* LogoutWishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA99092668D1B60057ADDD /* LogoutWishListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +102,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF0C73232668FB51000904E1 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		FF0C732C2669047F000904E1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FF0C732F266904BB000904E1 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		FF0C7331266912F6000904E1 /* SearchResultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultManager.swift; sourceTree = "<group>"; };
+		FF0C733326698EB2000904E1 /* Accommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
+		FF0C73782669E767000904E1 /* DetailAccommodationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccommodationViewController.swift; sourceTree = "<group>"; };
+		FF0C737A2669E7FB000904E1 /* DetailAccommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccommodation.swift; sourceTree = "<group>"; };
+		FF0C737C2669F729000904E1 /* WishListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCell.swift; sourceTree = "<group>"; };
+		FF0C737D2669F729000904E1 /* WishListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListCell.xib; sourceTree = "<group>"; };
+		FF0C73802669F80A000904E1 /* WishListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListItem.swift; sourceTree = "<group>"; };
 		FF57675F2652490C00F46A43 /* Arirbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arirbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5767622652490C00F46A43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF5767642652490C00F46A43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,9 +133,8 @@
 		FF5767BB26535AC200F46A43 /* HeroImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageCell.swift; sourceTree = "<group>"; };
 		FF5767BE2653655400F46A43 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		FF5767CB2653A28D00F46A43 /* LoginMyReserVationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMyReserVationViewController.swift; sourceTree = "<group>"; };
-		FF5767CE2653A2AE00F46A43 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		FF5767CE2653A2AE00F46A43 /* LoginWishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWishListViewController.swift; sourceTree = "<group>"; };
 		FF5767D12653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbnbSceneFlowCoordinator.swift; sourceTree = "<group>"; };
-		FF5767D72653A9EB00F46A43 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
 		FF5767DB2653AC3000F46A43 /* FlowTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTabBarController.swift; sourceTree = "<group>"; };
 		FF5767E22653B48700F46A43 /* DetailSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchViewController.swift; sourceTree = "<group>"; };
 		FF665D1B26574E4200130ABB /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -156,6 +176,7 @@
 		FFCA98FD2668C3510057ADDD /* LogoutMyReserVationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutMyReserVationViewController.swift; sourceTree = "<group>"; };
 		FFCA98FF2668C3B10057ADDD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FFCA99072668CB380057ADDD /* LoginNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
+		FFCA99092668D1B60057ADDD /* LogoutWishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutWishListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +186,7 @@
 			files = (
 				FFCA98D72665FE2F0057ADDD /* SnapKit in Frameworks */,
 				FFCA99032668C6EC0057ADDD /* Alamofire in Frameworks */,
+				FF0C732B26690241000904E1 /* JWTDecode in Frameworks */,
 				FFCA99062668C7100057ADDD /* KeychainSwift in Frameworks */,
 				FFCA98B12665CB790057ADDD /* HorizonCalendar in Frameworks */,
 				FF665D2E2657841000130ABB /* Kingfisher in Frameworks */,
@@ -188,6 +210,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF0C732E266904AE000904E1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FF0C732C2669047F000904E1 /* NetworkService.swift */,
+				FF0C732F266904BB000904E1 /* EndPoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FF0C73762669DF26000904E1 /* DetailAccommodationScene */ = {
+			isa = PBXGroup;
+			children = (
+				FF0C73782669E767000904E1 /* DetailAccommodationViewController.swift */,
+				FF0C73772669DF31000904E1 /* View */,
+			);
+			path = DetailAccommodationScene;
+			sourceTree = "<group>";
+		};
+		FF0C73772669DF31000904E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		FF5767562652490C00F46A43 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +258,8 @@
 		FF5767612652490C00F46A43 /* Arirbnb */ = {
 			isa = PBXGroup;
 			children = (
+				FF0C73762669DF26000904E1 /* DetailAccommodationScene */,
+				FF0C732E266904AE000904E1 /* Network */,
 				FFCA99072668CB380057ADDD /* LoginNavigationController.swift */,
 				FFCA98FF2668C3B10057ADDD /* LoginViewController.swift */,
 				FFCA98FB2668C1030057ADDD /* LoginManager.swift */,
@@ -227,6 +276,7 @@
 				FF5767BD2653654400F46A43 /* SharedView */,
 				FF5767BA26535A3F00F46A43 /* Delegate */,
 				FF5767B926535A1600F46A43 /* SupportingFiles */,
+				FF0C7331266912F6000904E1 /* SearchResultManager.swift */,
 			);
 			path = Arirbnb;
 			sourceTree = "<group>";
@@ -309,7 +359,8 @@
 		FF5767C72653A21500F46A43 /* WishListScene */ = {
 			isa = PBXGroup;
 			children = (
-				FF5767D62653A9DF00F46A43 /* ViewModel */,
+				FFCA99092668D1B60057ADDD /* LogoutWishListViewController.swift */,
+				FF5767CE2653A2AE00F46A43 /* LoginWishListViewController.swift */,
 				FF5767CD2653A2A100F46A43 /* View */,
 			);
 			path = WishListScene;
@@ -335,7 +386,8 @@
 		FF5767CD2653A2A100F46A43 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FF5767CE2653A2AE00F46A43 /* WishListViewController.swift */,
+				FF0C737C2669F729000904E1 /* WishListCell.swift */,
+				FF0C737D2669F729000904E1 /* WishListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,14 +399,6 @@
 				FF5767DB2653AC3000F46A43 /* FlowTabBarController.swift */,
 			);
 			path = Flow;
-			sourceTree = "<group>";
-		};
-		FF5767D62653A9DF00F46A43 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				FF5767D72653A9EB00F46A43 /* WishListViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FF5767DF2653B44500F46A43 /* DetailSearchScene */ = {
@@ -390,6 +434,9 @@
 				FFCA98CC2665CD460057ADDD /* FilterItems.swift */,
 				FFCA98DE26660D0A0057ADDD /* PersonFilter.swift */,
 				FFCA98F5266747650057ADDD /* SearchResult.swift */,
+				FF0C733326698EB2000904E1 /* Accommodation.swift */,
+				FF0C737A2669E7FB000904E1 /* DetailAccommodation.swift */,
+				FF0C73802669F80A000904E1 /* WishListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,6 +447,7 @@
 				FFAB2ACC26620C4A008AEB31 /* ReuseIdentifierable.swift */,
 				FFAB2AD026620E5F008AEB31 /* UINibCreateable.swift */,
 				FFAB2ACE26620DAB008AEB31 /* ViewControllerIdentifierable.swift */,
+				FF0C73232668FB51000904E1 /* Alertable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -513,6 +561,7 @@
 				FFCA98D62665FE2F0057ADDD /* SnapKit */,
 				FFCA99022668C6EC0057ADDD /* Alamofire */,
 				FFCA99052668C7100057ADDD /* KeychainSwift */,
+				FF0C732A26690241000904E1 /* JWTDecode */,
 			);
 			productName = Arirbnb;
 			productReference = FF57675F2652490C00F46A43 /* Arirbnb.app */;
@@ -591,6 +640,7 @@
 				FFCA98D52665FE2F0057ADDD /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FFCA99012668C6EC0057ADDD /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FFCA99042668C7100057ADDD /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				FF0C732926690241000904E1 /* XCRemoteSwiftPackageReference "JWTDecode" */,
 			);
 			productRefGroup = FF5767602652490C00F46A43 /* Products */;
 			projectDirPath = "";
@@ -608,6 +658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF0C737F2669F729000904E1 /* WishListCell.xib in Resources */,
 				FF5767A4265298A000F46A43 /* AdjacentDestinationsCell.xib in Resources */,
 				FF57676F2652490E00F46A43 /* LaunchScreen.storyboard in Resources */,
 				FF57676C2652490E00F46A43 /* Assets.xcassets in Resources */,
@@ -642,34 +693,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFCA98CD2665CD460057ADDD /* FilterItems.swift in Sources */,
+				FFCA990A2668D1B60057ADDD /* LogoutWishListViewController.swift in Sources */,
 				FFCA98C22665CD1F0057ADDD /* Date+Extension.swift in Sources */,
 				FFCA98EC26671AAA0057ADDD /* UITableView+Extension.swift in Sources */,
 				FF5767CC2653A28D00F46A43 /* LoginMyReserVationViewController.swift in Sources */,
 				FFCA98C32665CD1F0057ADDD /* Day+Extension.swift in Sources */,
 				FFCA98BC2665CCE70057ADDD /* DayRangeIndicatorView.swift in Sources */,
 				FF5767DC2653AC3000F46A43 /* FlowTabBarController.swift in Sources */,
+				FF0C73242668FB51000904E1 /* Alertable.swift in Sources */,
 				FFCA99082668CB380057ADDD /* LoginNavigationController.swift in Sources */,
 				FF5767E32653B48700F46A43 /* DetailSearchViewController.swift in Sources */,
 				FFAB2ACF26620DAB008AEB31 /* ViewControllerIdentifierable.swift in Sources */,
 				FFCA98C42665CD1F0057ADDD /* NotificationName.swift in Sources */,
 				FFCA98E3266614950057ADDD /* FilteringTableViewDataSource.swift in Sources */,
+				FF0C7332266912F6000904E1 /* SearchResultManager.swift in Sources */,
 				FF5767D22653A60800F46A43 /* AirbnbSceneFlowCoordinator.swift in Sources */,
 				FFCA98BA2665CCE70057ADDD /* DumbaCalendar.swift in Sources */,
 				FFCA98FC2668C1030057ADDD /* LoginManager.swift in Sources */,
-				FF5767D82653A9EB00F46A43 /* WishListViewModel.swift in Sources */,
 				FFAB2ACD26620C4A008AEB31 /* ReuseIdentifierable.swift in Sources */,
 				FFCA98E8266717600057ADDD /* PriceFilteringViewController.swift in Sources */,
-				FF5767CF2653A2AE00F46A43 /* WishListViewController.swift in Sources */,
+				FF0C737B2669E7FB000904E1 /* DetailAccommodation.swift in Sources */,
+				FF5767CF2653A2AE00F46A43 /* LoginWishListViewController.swift in Sources */,
 				FF665D1D26574E4200130ABB /* SearchResultCell.swift in Sources */,
+				FF0C73792669E767000904E1 /* DetailAccommodationViewController.swift in Sources */,
+				FF0C732D2669047F000904E1 /* NetworkService.swift in Sources */,
 				FFCA98EE26671FF90057ADDD /* UIViewController+Extension.swift in Sources */,
 				FFCA98DF26660D0A0057ADDD /* PersonFilter.swift in Sources */,
+				FF0C733426698EB2000904E1 /* Accommodation.swift in Sources */,
 				FFCA98D22665DE2B0057ADDD /* SliderView.swift in Sources */,
+				FF0C7330266904BB000904E1 /* EndPoint.swift in Sources */,
 				FF665D302657845700130ABB /* UIImageView+Extension.swift in Sources */,
 				FFCA98F6266747650057ADDD /* SearchResult.swift in Sources */,
 				FF5767B42653311E00F46A43 /* ThemeDestinationsCell.swift in Sources */,
+				FF0C73812669F80A000904E1 /* WishListItem.swift in Sources */,
 				FFCA98FE2668C3510057ADDD /* LogoutMyReserVationViewController.swift in Sources */,
 				FFCA98DA266609EE0057ADDD /* PersonFilteringCell.swift in Sources */,
 				FFCA98C52665CD1F0057ADDD /* UserInfoKey.swift in Sources */,
+				FF0C737E2669F729000904E1 /* WishListCell.swift in Sources */,
 				FF665D3C265B78B200130ABB /* Destination.swift in Sources */,
 				FF5767A22652935F00F46A43 /* AdjacentDestinationsCell.swift in Sources */,
 				FFCA98F3266744460057ADDD /* SearchResultViewController.swift in Sources */,
@@ -1023,6 +1083,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FF0C732926690241000904E1 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
 		FF665D2C2657841000130ABB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -1066,6 +1134,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FF0C732A26690241000904E1 /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF0C732926690241000904E1 /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
+		};
 		FF665D2D2657841000130ABB /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FF665D2C2657841000130ABB /* XCRemoteSwiftPackageReference "Kingfisher" */;

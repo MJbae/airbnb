@@ -8,16 +8,15 @@
 import UIKit
 
 struct PersonFilteringViewControllerAction {
-    let showSearchResultView: (SearchResult?) -> Void
+    let showSearchResultView: () -> Void
 }
 
 class PersonFilteringViewController: UIViewController, ViewControllerIdentifierable {
-    static func create(_ action: PersonFilteringViewControllerAction, _ searchResult: SearchResult?, _ filerlingDataSource: FilteringTableViewDataSource) -> PersonFilteringViewController {
+    static func create(_ action: PersonFilteringViewControllerAction, _ filerlingDataSource: FilteringTableViewDataSource) -> PersonFilteringViewController {
         guard let vc = storyboard.instantiateViewController(identifier: storyboardID) as? PersonFilteringViewController else {
             return PersonFilteringViewController()
         }
         vc.action = action
-        vc.searchResult = searchResult
         vc.filteringTableViewDataSource = filerlingDataSource
         return vc
     }
@@ -27,7 +26,7 @@ class PersonFilteringViewController: UIViewController, ViewControllerIdentifiera
     private lazy var filteringTableView = UITableView()
     private lazy var flowView = SearchFlowView()
     
-    private var searchResult: SearchResult?
+    private var searchResultManager = SearchResultManager.shared
     private var action: PersonFilteringViewControllerAction?
     private var personFilteringDataSource = PersonFilteringDataSource()
     private var filteringTableViewDataSource = FilteringTableViewDataSource()
@@ -112,10 +111,9 @@ extension PersonFilteringViewController {
     }
     
     @objc func nextButtonDidTap(_ notification: Notification) {
-        searchResult?.guest = personFilteringDataSource.countOfGuest()
-        searchResult?.infant = personFilteringDataSource.countOfInfant()
+        searchResultManager.setGuest(personFilteringDataSource.countOfAdult(), personFilteringDataSource.countOfChildren(), personFilteringDataSource.countOfInfant())
         
-        action?.showSearchResultView(searchResult)
+        action?.showSearchResultView()
     }
     
     @objc func eraseButtonDidTap(_ notification: Notification) {
@@ -124,8 +122,8 @@ extension PersonFilteringViewController {
         filteringTableViewDataSource.numberOfPeopleChange("")
         filteringTableView.reloadData()
         flowView.doNotMeetTheConditions()
-        searchResult?.guest = nil
-        searchResult?.infant = nil
+        
+        searchResultManager.clearGuest()        
     }
     
     @objc func personFilteringPlusButtonDidTap(_ notification: Notification) {

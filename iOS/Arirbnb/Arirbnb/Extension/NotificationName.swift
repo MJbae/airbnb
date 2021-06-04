@@ -14,4 +14,6 @@ extension Notification.Name {
     static let resetFiltering = Notification.Name("resetFiltering")
     static let personMinusButtonDidTap = Notification.Name("personMinusButtonDidTap")
     static let personPlustButtonDidTap = Notification.Name("personPlustButtonDidTap")
+    static let userIsLogin = Notification.Name("userIsLogin")
+    static let userIsLogout = Notification.Name("userIsLogout")
 }

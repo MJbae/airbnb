@@ -10,8 +10,8 @@ import UIKit
 class DumbaSlider: UIControl {
     var minimumValue: CGFloat = 0
     var maximumValue: CGFloat = 1
-    var lowerValue: CGFloat = 0.2
-    var upperValue: CGFloat = 0.8
+    var lowerValue: CGFloat = 0.0
+    var upperValue: CGFloat = 1.0
     
     var thumbImage = #imageLiteral(resourceName: "pause")
 

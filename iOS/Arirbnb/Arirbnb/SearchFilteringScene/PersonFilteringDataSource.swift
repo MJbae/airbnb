@@ -86,8 +86,12 @@ class PersonFilteringDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-    func countOfGuest() -> Int {
-        return personFilters[PersonSection.Adult.rawValue].count + personFilters[PersonSection.Children.rawValue].count
+    func countOfAdult() -> Int {
+        return personFilters[PersonSection.Adult.rawValue].count
+    }
+    
+    func countOfChildren() -> Int {
+        personFilters[PersonSection.Children.rawValue].count
     }
     
     func countOfInfant() -> Int {

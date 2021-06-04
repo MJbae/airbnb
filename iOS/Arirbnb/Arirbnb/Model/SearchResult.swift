@@ -9,10 +9,13 @@ import Foundation
 import HorizonCalendar
 
 struct SearchResult {
-    var lowerDay: Day?
-    var upperDay: Day?
-    var startPrice: Int?
-    var endPrice: Int?
-    var guest: Int?
-    var infant: Int?
+    var destination: String?
+    var checkInDate: Day?
+    var checkOutDate: Day?
+    var totalDay: Int?
+    var minPrice: Int?
+    var maxPrice: Int?
+    var numOfAdult: Int?
+    var numOfChild: Int?
+    var numOfInfant: Int?
 }

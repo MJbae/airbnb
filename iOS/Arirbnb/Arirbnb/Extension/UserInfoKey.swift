@@ -10,5 +10,6 @@ import Foundation
 struct UserInfoKey {
     static var selectedLowerDay = "selectedLowerDay"
     static var selectedUpperDay = "selectedUpperDay"
+    static var selectedTotalDay = "selectedTotalDay"
     static var personSection = "personSection"
 }

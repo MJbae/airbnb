@@ -69,7 +69,11 @@ struct MockSearchedDestinaion {
                 Destination.init(destinationName: "부산"),
                 Destination.init(destinationName: "부천"),
                 Destination.init(destinationName: "춘천"),
-                Destination.init(destinationName: "부평")
+                Destination.init(destinationName: "부평"),
+                Destination.init(destinationName: "양재"),
+                Destination.init(destinationName: "봉천"),
+                Destination.init(destinationName: "봉천동"),
+                Destination.init(destinationName: "양재역")
         ]
     }
 }
