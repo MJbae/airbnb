@@ -1,14 +1,18 @@
 # 숙소예약 서비스
 ## 시연
 ### Web Front
-<img width="50%" src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b65a94ea-ebb5-4371-bcfd-fc5c81283ca4/airbnb_calendar.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210528%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210528T075048Z&X-Amz-Expires=86400&X-Amz-Signature=7062b2fc17e8ed8e64596269d468b59fd6f24ee4a2c2cac0ce74bf601dcd47fa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22airbnb_calendar.gif%22"/>
+- [메인](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b65a94ea-ebb5-4371-bcfd-fc5c81283ca4/airbnb_calendar.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210528%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210528T075048Z&X-Amz-Expires=86400&X-Amz-Signature=7062b2fc17e8ed8e64596269d468b59fd6f24ee4a2c2cac0ce74bf601dcd47fa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22airbnb_calendar.gif%22)
 
 ### iOS
-<img width="20%" src="https://user-images.githubusercontent.com/16694346/119956348-f9863f80-bfdb-11eb-916f-8c76d55523ff.gif"/>
+- [메인](https://user-images.githubusercontent.com/16694346/119956348-f9863f80-bfdb-11eb-916f-8c76d55523ff.gif)
+- [로그인](https://user-images.githubusercontent.com/16694346/120762641-673ce900-c551-11eb-9490-68398232a892.gif)
+- [숙소 검색](https://user-images.githubusercontent.com/16694346/120763015-ca2e8000-c551-11eb-9d7a-9d7693d3b048.gif)
 
 
 ### BE
 - [API Docs](https://documenter.getpostman.com/view/15818829/TzRa6jAk)
+- [인프라 설계](https://user-images.githubusercontent.com/16694346/120762096-e0880c00-c550-11eb-8035-d919307690d8.png)
+- [DB 설계](https://user-images.githubusercontent.com/16694346/120758125-6b1a3c80-c54c-11eb-944a-f8b6089967c7.png)
 
 ## 협업 규칙
 ### 소통 채널
