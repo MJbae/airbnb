@@ -38,6 +38,7 @@ class CalendarFilteringViewController: UIViewController, ViewControllerIdentifie
         configureTableView()
         addObservers()
         configureNavigationItem()
+        SearchResultManager.shared.setDestination(destination?.destinationName)
     }
     
     private func configureStackView() {
@@ -86,18 +87,23 @@ extension CalendarFilteringViewController {
     @objc func setDateChange(_ notification: Notification) {
         let lowerDay = notification.userInfo?[UserInfoKey.selectedLowerDay] as? Day
         let upperDay = notification.userInfo?[UserInfoKey.selectedUpperDay] as? Day
+        let totalDay = notification.userInfo?[UserInfoKey.selectedTotalDay] as? Int
+        
         let selectedDaysDescription = "\(lowerDay?.descriptionOnlyMonthDayForKorean ?? "") - \(upperDay?.descriptionOnlyMonthDayForKorean ?? "")"
         filteringTableViewDataSource.checkInOutChange(selectedDaysDescription)
         filteringTableView.reloadData()
         
+        SearchResultManager.shared.setDate(lowerDay, upperDay, totalDay)
+    
         flowView.meetTheConditions()
     }
     
     @objc func setDateIsChanging(_ notification: Notification) {
         filteringTableViewDataSource.checkInOutChange("")
         filteringTableView.reloadData()
-        
         flowView.doNotMeetTheConditions()
+        
+        SearchResultManager.shared.clearDate()
     }
     
     @objc func nextButtonDidTap(_ notification: Notification) {

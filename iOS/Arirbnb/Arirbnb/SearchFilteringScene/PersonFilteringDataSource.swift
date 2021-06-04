@@ -86,6 +86,18 @@ class PersonFilteringDataSource: NSObject, UITableViewDataSource {
         }
     }
     
+    func countOfAdult() -> Int {
+        return personFilters[PersonSection.Adult.rawValue].count
+    }
+    
+    func countOfChildren() -> Int {
+        personFilters[PersonSection.Children.rawValue].count
+    }
+    
+    func countOfInfant() -> Int {
+        return personFilters[PersonSection.Infant.rawValue].count
+    }
+    
     func reset() {
         configurePersonFilters()
     }

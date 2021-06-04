@@ -19,7 +19,8 @@ class DumbaCalendar: UIView {
     private var currentMonth: Int!
     private var currentDay: Int!
     private var nextYear: Int!
-
+    private var selectedTotalDay = 0
+    
     private var calendarView: CalendarView! = nil
     public var dateInfoReceivable: DateInfoReceivable?
     
@@ -114,11 +115,11 @@ class DumbaCalendar: UIView {
         if lowerDay != nil && upperDay != nil {
             let newContent = makeContentWithHighlightRange()
             calendarView.setContent(newContent)
-            NotificationCenter.default.post(name: .selectDateDidChange, object: self, userInfo: [UserInfoKey.selectedLowerDay: lowerDay, UserInfoKey.selectedUpperDay: upperDay])
+            NotificationCenter.default.post(name: .selectDateDidChange, object: self, userInfo: [UserInfoKey.selectedLowerDay: lowerDay, UserInfoKey.selectedUpperDay: upperDay, UserInfoKey.selectedTotalDay: selectedTotalDay])
         } else {
             let newContent = makeContent()
             calendarView.setContent(newContent)
-            
+            selectedTotalDay = 0
             NotificationCenter.default.post(name: .selectDateisChanging, object: self)
         }
     }
@@ -128,6 +129,7 @@ class DumbaCalendar: UIView {
         guard let upperDate = Calendar.current.date(from: DateComponents(year: self.upperDay?.components.year, month: self.upperDay?.components.month, day: self.upperDay?.components.day)) else { return makeContent()}
         
         let dateRangeToHighlight = lowerDate...upperDate
+        selectedTotalDay = Calendar.current.dateComponents([.day], from: lowerDate, to: upperDate).day ?? 0
         
         let newContent = self.makeContent().withDayRangeItemModelProvider(for: [dateRangeToHighlight]) { dayRangeLayoutContext in
             CalendarItemModel<DayRangeIndicatorView>(

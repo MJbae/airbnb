@@ -8,7 +8,7 @@
 import UIKit
 
 struct PersonFilteringViewControllerAction {
-    
+    let showSearchResultView: () -> Void
 }
 
 class PersonFilteringViewController: UIViewController, ViewControllerIdentifierable {
@@ -26,6 +26,7 @@ class PersonFilteringViewController: UIViewController, ViewControllerIdentifiera
     private lazy var filteringTableView = UITableView()
     private lazy var flowView = SearchFlowView()
     
+    private var searchResultManager = SearchResultManager.shared
     private var action: PersonFilteringViewControllerAction?
     private var personFilteringDataSource = PersonFilteringDataSource()
     private var filteringTableViewDataSource = FilteringTableViewDataSource()
@@ -110,7 +111,9 @@ extension PersonFilteringViewController {
     }
     
     @objc func nextButtonDidTap(_ notification: Notification) {
-
+        searchResultManager.setGuest(personFilteringDataSource.countOfAdult(), personFilteringDataSource.countOfChildren(), personFilteringDataSource.countOfInfant())
+        
+        action?.showSearchResultView()
     }
     
     @objc func eraseButtonDidTap(_ notification: Notification) {
@@ -119,6 +122,8 @@ extension PersonFilteringViewController {
         filteringTableViewDataSource.numberOfPeopleChange("")
         filteringTableView.reloadData()
         flowView.doNotMeetTheConditions()
+        
+        searchResultManager.clearGuest()        
     }
     
     @objc func personFilteringPlusButtonDidTap(_ notification: Notification) {

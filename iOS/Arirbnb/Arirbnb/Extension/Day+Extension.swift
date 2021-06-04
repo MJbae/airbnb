@@ -14,4 +14,10 @@ extension Day {
         let dayDescription = String(format: "%02d", day)
         return "\(monthDescription)월 \(dayDescription)일"
     }
+    
+    public var fullDate: String {
+        let monthDescription = String(format: "%02d", month.month)
+        let dayDescription = String(format: "%02d", day)
+        return "\(month.year)-\(monthDescription)-\(dayDescription)"
+    }
 }

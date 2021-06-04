@@ -11,6 +11,8 @@ import SnapKit
 class SliderView: UIView {
     
     private lazy var priceHeaderLabel = UILabel()
+    private lazy var priceRangeLabel = UILabel()
+    private lazy var priceAverageLabel = UILabel()
     private lazy var slider = DumbaSlider()
     
     override init(frame: CGRect) {
@@ -29,6 +31,8 @@ class SliderView: UIView {
 
         addSubview(slider)
         addSubview(priceHeaderLabel)
+        addSubview(priceRangeLabel)
+        addSubview(priceAverageLabel)
         
         priceHeaderLabel.text = "가격 범위"
         priceHeaderLabel.adjustsFontForContentSizeCategory = true
@@ -39,6 +43,7 @@ class SliderView: UIView {
 
         priceHeaderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 32).isActive = true
         priceHeaderLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+ 
         
         let margin: CGFloat = 20
         let width = superview.bounds.width - 2 * margin
@@ -46,5 +51,9 @@ class SliderView: UIView {
         
         slider.frame = CGRect(x: 0, y: 0, width: width, height: height)
         slider.center = CGPoint(x: superview.center.x, y: superview.center.y - 100)
+    }
+    
+    func configurePrice(rangeText: String, averageText: String) {
+        priceRangeLabel.text = rangeText
     }
 }

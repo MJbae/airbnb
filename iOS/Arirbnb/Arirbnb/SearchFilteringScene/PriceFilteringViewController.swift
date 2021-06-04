@@ -10,7 +10,7 @@ import UIKit
 struct PriceFilteringViewControllerAction {
     let showPersonFilteringView: (FilteringTableViewDataSource) -> ()
 }
-class PriceFilteringViewController: UIViewController, ViewControllerIdentifierable {
+class PriceFilteringViewController: UIViewController, ViewControllerIdentifierable, Alertable {
     static func create(_ action: PriceFilteringViewControllerAction, _ filerlingDataSource: FilteringTableViewDataSource) -> PriceFilteringViewController {
         guard let vc = storyboard.instantiateViewController(identifier: storyboardID) as? PriceFilteringViewController else {
             return PriceFilteringViewController()
@@ -25,11 +25,16 @@ class PriceFilteringViewController: UIViewController, ViewControllerIdentifierab
     private lazy var filteringTableView = UITableView()
     private lazy var flowView = SearchFlowView()
     
+    private var network = NetworkService.shared
+    private var searchResultManger = SearchResultManager.shared
+    
     private var action: PriceFilteringViewControllerAction?
     private var filteringTableViewDataSource = FilteringTableViewDataSource()
+    private var accommodations: [Accommodation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        load()
         configureStackView()
         addSubViews()
         configureTableView()
@@ -38,6 +43,21 @@ class PriceFilteringViewController: UIViewController, ViewControllerIdentifierab
     
     override func viewDidAppear(_ animated: Bool) {
         sliderView.configure()
+    }
+    
+    private func load() {
+        let parameters = searchResultManger.parameter()
+        let endPoint = EndPoint(path: "accommodations", httpMethod: .get, parameter: parameters)
+
+        network.requestAccomodations(with: endPoint) { result in
+            switch result {
+            case .success(let accommodations):
+                self.accommodations = accommodations
+            case .failure(let error):
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
+        
     }
     
     private func configureStackView() {
