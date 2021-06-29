@@ -1,11 +1,27 @@
 # 숙소예약 서비스
 ## 시연
 ### Web Front
+- 📆 달력 캐로셀
+
+https://user-images.githubusercontent.com/62237639/123859900-34272300-d960-11eb-8f81-1fe27d40acdd.mp4
+
+<br/>
+<br/>
+
+- 📈 요금 그래프와 멀티 슬라이더
+
+https://user-images.githubusercontent.com/62237639/123859954-41dca880-d960-11eb-8063-a4839631bd20.mp4
+
+<br/>
+<br/>
+
+- 🗺 인원 토글버튼과 카카오 지도 API
+
+https://user-images.githubusercontent.com/62237639/123860631-1908e300-d961-11eb-8215-6b23d64a2fa7.mp4
 
 
-https://user-images.githubusercontent.com/62237639/120894356-ebc36080-c652-11eb-99bd-8d814c0f504f.mp4
-
-
+<br/>
+<br/>
 
 
 ### iOS
