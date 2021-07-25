@@ -1,9 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { checkinDateState, checkoutDateState, hoverDateState } from "state/atoms/calendarAtoms";
-import Day from "component/searchBar/calendar/Day";
-import { getCalendarData } from "component/searchBar/calendar/getCalendarData";
+import React from 'react';
+import styled from 'styled-components';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import {
+  checkinDateState,
+  checkoutDateState,
+  hoverDateState,
+} from 'state/atoms/calendarAtoms';
+import Day from 'component/searchBar/calendar/Day';
+import { getCalendarData } from 'component/searchBar/calendar/getCalendarData';
 
 interface Props {
   year: number;
@@ -12,7 +16,7 @@ interface Props {
 }
 
 function Calendar({ year, month, today }: Props) {
-  const days = ["일", "월", "화", "수", "목", "금", "토"];
+  const days = ['일', '월', '화', '수', '목', '금', '토'];
   const [checkinDate, setCheckinDate] = useRecoilState(checkinDateState);
   const [checkoutDate, setCheckoutDate] = useRecoilState(checkoutDateState);
   const setHoverDate = useSetRecoilState(hoverDateState);
@@ -26,11 +30,11 @@ function Calendar({ year, month, today }: Props) {
     year++;
   }
   const weeksData = getCalendarData(year, month);
-  const didntSelect = "날짜 입력";
+  const didntSelect = '날짜 입력';
 
   const handleClickDate = (e: React.MouseEvent<HTMLTableElement>): void => {
     const target = e.target as HTMLElement;
-    const div: HTMLDivElement | null = target.closest(".dayDiv");
+    const div: HTMLDivElement | null = target.closest('.dayDiv');
     if (!div || !div.dataset.date) return;
     if (+div.dataset.date < +today) return;
 
@@ -49,19 +53,24 @@ function Calendar({ year, month, today }: Props) {
   const handleMouseOverDate = (e: React.MouseEvent<HTMLTableElement>): void => {
     if (checkinDate === didntSelect || checkoutDate !== didntSelect) return;
     const target = e.target as HTMLElement;
-    const div: HTMLDivElement | null = target.closest(".dayDiv");
+    const div: HTMLDivElement | null = target.closest('.dayDiv');
     if (!div || !div.dataset.date) return;
 
     const enteredDate: string = div.dataset.date;
     setHoverDate(enteredDate);
   };
 
+  const dayProps = { year, month, today };
+
   return (
     <CalendarContainer>
       <CalendarTitle>
         {year}년 {month + 1}월
       </CalendarTitle>
-      <CalendarTable onClick={handleClickDate} onMouseOver={handleMouseOverDate}>
+      <CalendarTable
+        onClick={handleClickDate}
+        onMouseOver={handleMouseOverDate}
+      >
         <thead>
           <tr>
             {days.map((day) => (
@@ -73,7 +82,7 @@ function Calendar({ year, month, today }: Props) {
           {weeksData.map((week, i) => (
             <tr key={year + month + i}>
               {week.map((day, i) => (
-                <Day key={day + i} day={day} year={year} month={month} today={today} />
+                <Day key={day + i} day={day} {...dayProps} />
               ))}
             </tr>
           ))}
