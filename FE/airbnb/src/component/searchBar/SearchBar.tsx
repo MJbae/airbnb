@@ -1,14 +1,17 @@
-import React, { useState, Suspense } from "react";
-import styled from "styled-components";
-import Period from "component/searchBar/Period";
-import Fare from "component/searchBar/Fare";
-import Guest from "component/searchBar/Guest";
-import SearchBtn from "component/searchBar/SearchBtn";
-import CalendarModal from "component/searchBar/calendar/CalendarModal";
-import FareModal from "component/searchBar/fareChart/FareModal";
-import GuestModal from "component/searchBar/guestList/GuestModal";
-import SuspenseFareModal from "component/searchBar/fareChart/SuspenseFareModal";
-import { openModal, closeModalByBodyClick } from "component/searchBar/modalFunctions";
+import React, { useState, Suspense } from 'react';
+import styled from 'styled-components';
+import Period from 'component/searchBar/Period';
+import Fare from 'component/searchBar/Fare';
+import Guest from 'component/searchBar/Guest';
+import SearchBtn from 'component/searchBar/SearchBtn';
+import CalendarModal from 'component/searchBar/calendar/CalendarModal';
+import FareModal from 'component/searchBar/fareChart/FareModal';
+import GuestModal from 'component/searchBar/guestList/GuestModal';
+import SuspenseFareModal from 'component/searchBar/fareChart/SuspenseFareModal';
+import {
+  openModal,
+  closeModalByBodyClick,
+} from 'component/searchBar/modalFunctions';
 
 interface Props {
   size: string;
@@ -18,26 +21,38 @@ function SearchBar({ size }: Props) {
   const [isOpenCalendar, setIsOpenCalendar] = useState(false);
   const [isOpenFare, setIsOpenFare] = useState(false);
   const [isOpenGuest, setIsOpenGuest] = useState(false);
-  const handleClickPeriod = (e: React.MouseEvent) =>
-    openModal({ e, openModal: setIsOpenCalendar, closeModal: [setIsOpenFare, setIsOpenGuest] });
-  const handleClickFare = (e: React.MouseEvent) =>
-    openModal({ e, openModal: setIsOpenFare, closeModal: [setIsOpenCalendar, setIsOpenGuest] });
-  const handleClickGuest = (e: React.MouseEvent) =>
-    openModal({ e, openModal: setIsOpenGuest, closeModal: [setIsOpenCalendar, setIsOpenFare] });
+  const onClickPeriod = (e: React.MouseEvent) =>
+    openModal({
+      e,
+      openModal: setIsOpenCalendar,
+      closeModal: [setIsOpenFare, setIsOpenGuest],
+    });
+  const onClickFare = (e: React.MouseEvent) =>
+    openModal({
+      e,
+      openModal: setIsOpenFare,
+      closeModal: [setIsOpenCalendar, setIsOpenGuest],
+    });
+  const onClickGuest = (e: React.MouseEvent) =>
+    openModal({
+      e,
+      openModal: setIsOpenGuest,
+      closeModal: [setIsOpenCalendar, setIsOpenFare],
+    });
   closeModalByBodyClick(setIsOpenCalendar, setIsOpenFare, setIsOpenGuest);
 
   return (
     <SearchBarContainer size={size}>
       <SearchBarList>
-        <Period onClick={handleClickPeriod} size={size} />
+        <Period onClickPeriod={onClickPeriod} size={size} />
         {isOpenCalendar && <CalendarModal />}
-        <Fare onClick={handleClickFare} size={size} />
+        <Fare onClickFare={onClickFare} size={size} />
         {isOpenFare && (
           <Suspense fallback={<SuspenseFareModal />}>
             <FareModal />
           </Suspense>
         )}
-        <Guest onClick={handleClickGuest} size={size} />
+        <Guest onClickGuest={onClickGuest} size={size} />
         {isOpenGuest && <GuestModal />}
         <SearchBtn size={size} />
       </SearchBarList>
@@ -52,7 +67,8 @@ interface SearchBarContainerType {
 }
 
 const SearchBarContainer = styled.div<SearchBarContainerType>`
-  ${({ size, theme }) => (size === "big" ? theme.bigSearchBar : theme.miniSearchBar)}
+  ${({ size, theme }) =>
+    size === 'big' ? theme.bigSearchBar : theme.miniSearchBar}
   border: 1px solid ${({ theme }) => theme.color.gray5};
   border-radius: ${({ theme }) => theme.borderRadius.l};
   background-color: #fff;
@@ -69,7 +85,7 @@ const SearchBarList = styled.ul`
     position: relative;
   }
   .betweenBorder::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 50%;
